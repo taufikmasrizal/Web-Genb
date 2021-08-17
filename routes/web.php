@@ -27,6 +27,7 @@ Route::get('/tentangpage', function () {
 Route::resource('/portofolio','PortofolioController');
 Route::post('/portofolio/update/{id}', 'PortofolioController@update')->name('portofolio.update');
 Route::post('/portofolio/delete/{id}', 'PortofolioController@destroy')->name('portofolio.destroy');
+Route::get('/portofolio/search', 'PortofolioController@search')->name('portofolio.search');
 Route::resource('/klien','KlienController');
 Route::post('/klien/update/{id}', 'KlienController@update')->name('klien.update');
 Route::post('/klien/delete/{id}', 'KlienController@destroy')->name('klien.destroy');
@@ -43,13 +44,19 @@ Route::post('/auth/login', 'AuthController@login')->name('auth.login');
 Route::get('register', 'AuthController@showFormRegister')->name('register');
 Route::post('register', 'AuthController@register');
 Route::get('/', 'GuestController@utama');
+Route::resource('/feedback','FeedbackController');
+Route::post('/feedback/update/{id}', 'FeedbackController@update')->name('feedback.update');
+Route::post('/feedback/delete/{id}','FeedbackController@destroy')->name('feedback.destroy');
 Route::get('/index', 'GuestController@klien');
 Route::post('/','HubunginkamiController@store')->name('hubunginkami.store');
 Route::get('/portofoliopage', 'GuestController@index');
 Route::get('/produkpage', 'GuestController@produk');
 Route::resource('/portofoliopage','GuestController');
 Route::resource('/hubunginkami','HubunginkamiController');
-Route::get('/hubunginkami/search','HubunginkamiController@search')->name('saran.search');
+Route::resource('/kontak','KontakController');
+Route::post('/kontak/update/{id}', 'KontakController@update')->name('kontak.update');
+Route::post('/kontak/delete/{id}','KontakController@destroy')->name('kontak.destroy');
+Route::get('/hubunginkami/search','HubunginkamiController@search')->name('hubunginkami.search');
 Route::group(['middleware' => 'auth'], function () {
  
     Route::get('home', 'HomeController@index')->name('home');

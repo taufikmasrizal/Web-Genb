@@ -1,8 +1,8 @@
 @extends('admin.home')
 @section('content')
-<form action="{{ route('portofolio.search') }}" method="get">@csrf
-    <input type="text" name="kata" placeholder="Pencarian Data By Nama">
-</form>
+@if(count($data_portofolio))
+<div class="container">
+    <div>Ditemukan {{ count($data_portofolio) }} data dengan kata: {{ $cari }}</div>
 <div class="card-body">
             @if(Session::has('pesan'))
             <div class="alert alert-success">
@@ -41,6 +41,10 @@
         </tbody>
         </table>
         <div style="float: right">{{$portofolio->links()}}</div>
+        @else
+        <div><h4>Data {{ $cari }} Tidak Ditemukan </h4>
+        <a href="/portofolio">Kembali </a></div>
+        @endif
         </div>
         </div>
 @endsection

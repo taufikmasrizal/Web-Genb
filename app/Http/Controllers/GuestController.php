@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\portofolio;
 use App\klien;
+use App\Feedback;
+use App\Kontak;
 class GuestController extends Controller
 {
     public function index(){
@@ -14,7 +16,9 @@ class GuestController extends Controller
     public function utama(){
         $portofolio = Portofolio::all();
         $client = Klien::all();
-        return view('index', ['client' => $client,'portofolio'=>$portofolio]);
+        $feedback = Feedback::all();
+        $kontak = Kontak::all();
+        return view('index', ['client' => $client,'portofolio'=>$portofolio,'feedback'=>$feedback, 'kontak'=>$kontak]);
     }
     public function produk(){
         $produk = Produk::all();

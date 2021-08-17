@@ -73,7 +73,9 @@ public function dashboard(){
     public function search(Request $request){
         $batas = 5;
         $cari = $request->kata;
-        $data_portofolio = Portofolio::where('');
+        $data_portofolio = Portofolio::where('judul_portofolio','like',"%".$cari."%")->paginate($batas);
+        $no = $batas * ($data_portofolio->currentPage() - 1);
+        return view('portofolio.search', compact('data_portofolio','no','cari'));
     }
     public function destroy($id){
         $portofolio = Portofolio::find($id);

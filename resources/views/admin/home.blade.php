@@ -184,6 +184,30 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Bukti Kepuasan Klien<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                <li>
+                                        <a href="{{ route('feedback.create') }}">Form Bukti Kepuasan Klien</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('feedback.index') }}">Tabel Bukti Kepuasan Klien</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Footer<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                <li>
+                                        <a href="{{ route('kontak.create') }}">Form Footer</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('kontak.index') }}">Tabel Footer</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
                                 <a href="{{ route('logout') }}"><i class="fa fa-dashboard fa-fw"></i> Logout</a>
                             </li>
                             

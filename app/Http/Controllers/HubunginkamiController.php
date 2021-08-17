@@ -27,7 +27,7 @@ class HubunginkamiController extends Controller
     }
     public function search(Request $request){
         $batas = 5;
-        $cari = $request->nama;
+        $cari = $request->kata;
         $data_saran = Hubunginkami::where('nama','like',"%".$cari."%") -> paginate($batas);
         $no = $batas * ($data_saran->currentPage() - 1);
         return view('saran.search', compact('data_saran','no','cari'));

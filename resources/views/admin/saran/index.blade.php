@@ -1,7 +1,7 @@
 @extends('admin.home')
 @section('content')
 <form action="{{ route('hubunginkami.search') }}" method="get">@csrf
-    <input type="text" name="nama" placeholder="Pencarian Data By Nama">
+    <input type="text" name="kata" placeholder="Pencarian Data By Nama">
 </form>
 <div class="card-body">
             @if(Session::has('pesan'))
