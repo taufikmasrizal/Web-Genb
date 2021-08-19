@@ -58,6 +58,12 @@ Route::resource('/kontak','KontakController');
 Route::post('/kontak/update/{id}', 'KontakController@update')->name('kontak.update');
 Route::post('/kontak/delete/{id}','KontakController@destroy')->name('kontak.destroy');
 Route::get('/hubunginkami/search','HubunginkamiController@search')->name('hubunginkami.search');
+Route::resource('/bannerhome','BannerHomeController');
+Route::post('/bannerhome/update/{id}', 'BannerHomeController@update')->name('bannerhome.update');
+Route::post('/bannerhome/delete/{id}','BannerHomeController@destroy')->name('bannerhome.destroy');
+Route::resource('/bannerproduk','BannerProdukController');
+Route::post('/bannerproduk/update/{id}', 'BannerProdukController@update')->name('bannerproduk.update');
+Route::post('/bannerproduk/delete/{id}','BannerProdukController@destroy')->name('bannerproduk.destroy');
 Route::group(['middleware' => 'auth'], function () {
  
     Route::get('home', 'HomeController@index')->name('home');

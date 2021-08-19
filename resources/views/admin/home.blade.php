@@ -208,6 +208,30 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Banner Landing Page<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('bannerhome.create') }}">Form Banner Landing Pager</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('bannerhome.index') }}">Tabel Banner Landing Page</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Banner Produk<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('bannerproduk.create') }}">Form Banner Produk Jasa Page</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('bannerproduk.index') }}">Tabel Banner Produk Jasa Page</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
                                 <a href="{{ route('logout') }}"><i class="fa fa-dashboard fa-fw"></i> Logout</a>
                             </li>
                             
