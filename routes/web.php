@@ -52,6 +52,7 @@ Route::post('/','HubunginkamiController@store')->name('hubunginkami.store');
 Route::get('/portofoliopage', 'GuestController@index');
 Route::get('/produkpage', 'GuestController@produk');
 Route::resource('/portofoliopage','GuestController');
+Route::get('/tentangpage','GuestController@tentang');
 Route::resource('/hubunginkami','HubunginkamiController');
 Route::resource('/kontak','KontakController');
 Route::post('/kontak/update/{id}', 'KontakController@update')->name('kontak.update');

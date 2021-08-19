@@ -56,37 +56,48 @@
     
         <div class="container-fluid clearfix p-0">
         <div class="row">
-        @foreach ($produk as $data)
-            <div class="float-left product">
-                <div class="container p-5 text-left">
+            <div class="float-right product" style="background-image: url('thumb/'.$data->foto);">
+                <div class="container p-5 text-right">
+                @foreach ($produk as $data)
                   <h1 class="font-weight-bold mb-5">{{$data->nama_produk}}</h1>
-                  <h4 class="font-weight-light">Terlalu sibuk dengan usaha sampai kewalahan mengelola akun media sosial? Tenang, percayakan saja pengelolaan akun media sosial Anda pada kami.</h4>
+                  <h4 class="font-weight-light">{{$data->keterangan}}</h4>
+                  @endforeach
                 </div>
             </div>
-            <div class="float-right product" style="background-image: url('thumb/'.$data->foto);"></div>
-            <div class="float-right product">
+</div>
+ <div class="row">
+        <div class="float-right product" style="background-image: url('thumb/'.$data->foto);"></div>
+          <div class="float-right product">
                 <div class="container p-5 text-right">
                   <h1 class="font-weight-bold mb-5">Content Marketing</h1>
                   <h4 class="font-weight-light">Dengan tim yang andal dan berpengalaman di bidangnya, kami selalu siap menyediakan konten marketing yang sesuai dengan usaha Anda. Dapatkan konten berkualitas nan penuh kreatifitas dari GenB.</h4>
                 </div>
+          </div>
+        
+ </div>
+ <div class="row">
+        
+        <div class="float-left product" style="background-image: url asset('thumb/'.$data->foto) ;">
+            <div class="container p-5 text-left">
+            @foreach ($produk as $data)
+              <h1 class="font-weight-bold mb-5">Branding design</h1>
+              <h4 class="font-weight-light">{{$data->keterangan}}</h4>
+              @endforeach
             </div>
-            <div class="float-left product" style="background-image: url('frontend/img/temporary.jpg');"></div>
-              <div class="float-left product">
-                <div class="container p-5 text-right">
-                  <h1 class="font-weight-bold mb-5">Branding and Design</h1>
-                  <h4 class="font-weight-light">Bingung ingin ditampilkan seperti apa barang atau jasa yang Anda jual ke hadapan calon pembeli? Dapatkan berbagai referensi tentang branding hanya dari tim GenB.</h4>
-                </div>
-            </div>
-            <div class="float-right product" style="background-image: url('frontend/img/temporary.jpg');"></div>
-              <div class="float-right product">
-                <div class="container p-5 text-right">
-                  <h1 class="font-weight-bold mb-5">Photography</h1>
-                  <h4 class="font-weight-light">Percayakan foto barang atau jasa Anda pada ahlinya. GenB siap menyajikan foto dari sudut paling menarik dari barang atau jasa yang Anda pasarkan.</h4>
-                </div>
-            </div>
-            <div class="float-left product" style="background-image: url('frontend/img/temporary.jpg');"></div>
         </div>
-        @endforeach
+</div>
+<div class="row">
+        <div class="float-left product"> <img src="{{ asset('thumb/'.$data->foto) }}" width="450px" height="500px" class="rounded mb-5" alt=""></div>
+          <div class="float-left product">
+                <div class="container p-5 text-left">
+                  <h1 class="font-weight-bold mb-5">Photogprahy</h1>
+                  <h4 class="font-weight-light">Dengan tim yang andal dan berpengalaman di bidangnya, kami selalu siap menyediakan konten marketing yang sesuai dengan usaha Anda. Dapatkan konten berkualitas nan penuh kreatifitas dari GenB.</h4>
+                </div>
+          </div>
+        </div>
+ </div>
+            
+       
 </div>
         
     </section>
@@ -96,7 +107,7 @@
       <div class="container-fluid pt-5">
         <div class="row">
           <div class="col-lg-3 text-center mb-5">
-            <a href="index.html"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
+            <a href="index.html"><img src="img/logo.png" width="120px" alt=""></a>
           </div>
           <div class="col-lg-3 col-6 text-left text-white mb-5">
             <h5 class="font-weight-bold">Ikuti Kami:</h5>
@@ -104,15 +115,17 @@
             <a href="#"><img src="{{ asset('frontend/img/instagram.png') }}" width="50px" alt=""></a>
             <a href="#"><img src="{{ asset('frontend/img/linkedin.png') }}" width="50px" alt=""></a>
           </div>
+          @foreach ($kontak as $data)
           <div class="col-lg-3 col-6 text-left text-white mb-5">
             <h5 class="font-weight-bold">Kontak:</h5>
-            <p class="mb-0"><a class="text-white" href="tel:081234567890">081234567890</a></p>
-            <p><a class="text-white" href="mailto:sample@mail.com">sample@mail.com</a></p>
+            <p class="mb-0"><a class="text-white" href="tel:081234567890">{{ $data->no_kontak }}</a></p>
+            <p><a class="text-white" href="mailto:sample@mail.com">{{ $data->email }}</a></p>
           </div>
           <div class="col-lg-3 text-left text-white mb-5">
             <h5 class="font-weight-bold">Alamat Kami:</h5>
-            <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl feugiat tortor, nisi fusce potenti.</p>
+            <p class="font-weight-light">{{ $data->alamat }}</p>
           </div>
+          @endforeach
         </div>
         <h6 class="text-center text-white py-3 mb-0" style="border-top: 1px solid rgb(255,255,255)">© 2021 GenB Creative. All Rights Reserved</h6>
       </div>

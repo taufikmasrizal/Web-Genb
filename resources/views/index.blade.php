@@ -101,7 +101,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="mt-5">
+        <div class="mt-5 d-none">
           <h1 class="font-weight-bold text-center">Bukti Kepuasan Klien</h1>
           <h5 class="font-weight-light text-center">Berikut adalah bukti kepuasan para UMKM tentang layanan kami</h5>
           <div class="container">

@@ -7,6 +7,7 @@ use App\portofolio;
 use App\klien;
 use App\Feedback;
 use App\Kontak;
+use App\Produk;
 class GuestController extends Controller
 {
     public function index(){
@@ -22,8 +23,12 @@ class GuestController extends Controller
     }
     public function produk(){
         $produk = Produk::all();
-        return view('produkpage', compact('produk'));
+        $kontak = Kontak::all();
+        return view('produkpage', ['produk' => $produk,'kontak'=>$kontak]);
     }
-    
+    public function tentang(){
+        $kontak = Kontak::all();
+        return view('tentangpage', compact('kontak'));
+    }
     
 }

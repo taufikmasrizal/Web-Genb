@@ -86,7 +86,7 @@
       <div class="container-fluid pt-5">
         <div class="row">
           <div class="col-lg-3 text-center mb-5">
-            <a href="index.html"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
+            <a href="index.html"><img src="img/logo.png" width="120px" alt=""></a>
           </div>
           <div class="col-lg-3 col-6 text-left text-white mb-5">
             <h5 class="font-weight-bold">Ikuti Kami:</h5>
@@ -94,15 +94,17 @@
             <a href="#"><img src="{{ asset('frontend/img/instagram.png') }}" width="50px" alt=""></a>
             <a href="#"><img src="{{ asset('frontend/img/linkedin.png') }}" width="50px" alt=""></a>
           </div>
+          @foreach ($kontak as $data)
           <div class="col-lg-3 col-6 text-left text-white mb-5">
             <h5 class="font-weight-bold">Kontak:</h5>
-            <p class="mb-0"><a class="text-white" href="tel:081234567890">081234567890</a></p>
-            <p><a class="text-white" href="mailto:sample@mail.com">sample@mail.com</a></p>
+            <p class="mb-0"><a class="text-white" href="tel:081234567890">{{ $data->no_kontak }}</a></p>
+            <p><a class="text-white" href="mailto:sample@mail.com">{{ $data->email }}</a></p>
           </div>
           <div class="col-lg-3 text-left text-white mb-5">
             <h5 class="font-weight-bold">Alamat Kami:</h5>
-            <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl feugiat tortor, nisi fusce potenti.</p>
+            <p class="font-weight-light">{{ $data->alamat }}</p>
           </div>
+          @endforeach
         </div>
         <h6 class="text-center text-white py-3 mb-0" style="border-top: 1px solid rgb(255,255,255)">© 2021 GenB Creative. All Rights Reserved</h6>
       </div>
