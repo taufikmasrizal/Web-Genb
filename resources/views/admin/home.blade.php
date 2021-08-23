@@ -177,10 +177,22 @@
                                 <a href="#"><i class="fa fa-edit fa-fw"></i>Produk Branding Design<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="{{ route('produkbrandingdesign.create') }}">Form Produk Content Marketing</a>
+                                        <a href="{{ route('produkbrandingdesign.create') }}">Form Produk Branding Design</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('produkbrandingdesign.index') }}">Tabel Produk Content Marketing</a>
+                                        <a href="{{ route('produkbrandingdesign.index') }}">Tabel Produk Branding Design</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Produk Photography<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('produkphotography.create') }}">Form Produk Photography</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('produkphotography.index') }}">Tabel Produk Photography</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

@@ -76,6 +76,9 @@ Route::post('/produkcontentmarketing/delete/{id}', 'ProdukContentMarketingContro
 Route::resource('/produkbrandingdesign','ProdukBrandingDesignController');
 Route::post('/produkbrandingdesign/update/{id}', 'ProdukBrandingDesignController@update')->name('produkbrandingdesign.update');
 Route::post('/produkbrandingdesign/delete/{id}', 'ProdukBrandingDesignController@destroy')->name('produkbrandingdesign.destroy');
+Route::resource('/produkphotography','ProdukPhotographyController');
+Route::post('/produkphotography/update/{id}', 'ProdukPhotographyController@update')->name('produkphotography.update');
+Route::post('/produkphotography/delete/{id}', 'ProdukPhotographyController@destroy')->name('produkphotography.destroy');
 Route::group(['middleware' => 'auth'], function () {
  
     Route::get('home', 'HomeController@index')->name('home');

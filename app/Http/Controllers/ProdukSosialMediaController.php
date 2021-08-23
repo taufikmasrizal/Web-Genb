@@ -63,7 +63,7 @@ class ProdukSosialMediaController extends Controller
          return redirect('/produksosialmedia')->with('pesan','Data berhasil di update');
      }
      public function destroy($id){
-         $produksosialmedia = Produk::find($id);
+         $produksosialmedia = ProdukSosialMedia::find($id);
          $namafile = $produksosialmedia->foto;
          File::delete('images/'.$namafile);
          File::delete('thumb/'.$namafile);
