@@ -55,20 +55,21 @@
     <section>
     
         <div class="container-fluid clearfix p-0">
+        
         <div class="row">
-            <div class="float-right product" style="background-image: url('thumb/'.$data->foto);">
+        @foreach ($produksosialmedia as $data)
+            <div class="float-right product" > <img src="{{ asset('thumb/'.$data->foto) }}" width="450px" height="500px" class="rounded mb-5" alt=""></div>
                 <div class="container p-5 text-right">
-                @foreach ($produk as $data)
-                  <h1 class="font-weight-bold mb-5">{{$data->nama_produk}}</h1>
+                  <h1 class="font-weight-bold mb-5">{{$data->nama_produk_sosialmedia}}</h1>
                   <h4 class="font-weight-light">{{$data->keterangan}}</h4>
                   @endforeach
                 </div>
             </div>
 </div>
  <div class="row">
-        <div class="float-right product" style="background-image: url('thumb/'.$data->foto);"></div>
-          <div class="float-right product">
-                <div class="container p-5 text-right">
+        <div class="float-left product" style="background-image: url('thumb/'.$data->foto);"></div>
+          <div class="float-left product">
+                <div class="container p-5 text-left">
                   <h1 class="font-weight-bold mb-5">Content Marketing</h1>
                   <h4 class="font-weight-light">Dengan tim yang andal dan berpengalaman di bidangnya, kami selalu siap menyediakan konten marketing yang sesuai dengan usaha Anda. Dapatkan konten berkualitas nan penuh kreatifitas dari GenB.</h4>
                 </div>

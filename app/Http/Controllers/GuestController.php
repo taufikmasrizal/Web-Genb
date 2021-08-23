@@ -8,6 +8,7 @@ use App\klien;
 use App\Feedback;
 use App\Kontak;
 use App\Produk;
+use App\ProdukSosialMedia;
 class GuestController extends Controller
 {
     public function index(){
@@ -19,12 +20,14 @@ class GuestController extends Controller
         $client = Klien::all();
         $feedback = Feedback::all();
         $kontak = Kontak::all();
-        return view('index', ['client' => $client,'portofolio'=>$portofolio,'feedback'=>$feedback, 'kontak'=>$kontak]);
+        $produksosialmedia = ProdukSosialMedia::all();
+        return view('index', ['client' => $client,'portofolio'=>$portofolio,'feedback'=>$feedback, 'kontak'=>$kontak, 'produksosialmedia'=>$produksosialmedia]);
     }
     public function produk(){
         $produk = Produk::all();
         $kontak = Kontak::all();
-        return view('produkpage', ['produk' => $produk,'kontak'=>$kontak]);
+        $produksosialmedia = ProdukSosialMedia::all();
+        return view('produkpage', ['produk' => $produk,'kontak'=>$kontak,'produksosialmedia'=>$produksosialmedia]);
     }
     public function tentang(){
         $kontak = Kontak::all();

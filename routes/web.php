@@ -64,6 +64,18 @@ Route::post('/bannerhome/delete/{id}','BannerHomeController@destroy')->name('ban
 Route::resource('/bannerproduk','BannerProdukController');
 Route::post('/bannerproduk/update/{id}', 'BannerProdukController@update')->name('bannerproduk.update');
 Route::post('/bannerproduk/delete/{id}','BannerProdukController@destroy')->name('bannerproduk.destroy');
+Route::resource('/bannerportofolio','BannerPortofolioController');
+Route::post('/bannerportofolio/update/{id}', 'BannerPortofolioController@update')->name('bannerportofolio.update');
+Route::post('/bannerportofolio/delete/{id}', 'BannerPortofolioController@destroy')->name('bannerportofolio.destroy');
+Route::resource('/produksosialmedia','ProdukSosialMediaController');
+Route::post('/produksosialmedia/update/{id}', 'ProdukSosialMediaController@update')->name('produksosialmedia.update');
+Route::post('/produksosialmedia/delete/{id}', 'ProdukSosialMediaController@destroy')->name('produksosialmedia.destroy');
+Route::resource('/produkcontentmarketing','ProdukContentMarketingController');
+Route::post('/produkcontentmarketing/update/{id}', 'ProdukContentMarketingController@update')->name('produkcontentmarketing.update');
+Route::post('/produkcontentmarketing/delete/{id}', 'ProdukContentMarketingController@destroy')->name('produkcontentmarketing.destroy');
+Route::resource('/produkbrandingdesign','ProdukBrandingDesignController');
+Route::post('/produkbrandingdesign/update/{id}', 'ProdukBrandingDesignController@update')->name('produkbrandingdesign.update');
+Route::post('/produkbrandingdesign/delete/{id}', 'ProdukBrandingDesignController@destroy')->name('produkbrandingdesign.destroy');
 Route::group(['middleware' => 'auth'], function () {
  
     Route::get('home', 'HomeController@index')->name('home');

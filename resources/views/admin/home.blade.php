@@ -118,17 +118,7 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                <!-- /input-group -->
-                            </li>
+                            
                             <li>
                                 <a href="/home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
@@ -156,6 +146,42 @@
                                         <a href="{{ route('produk.index') }}">Tabel Data Produk</a>
                                     </li>
                                     
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Produk Social Media<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('produksosialmedia.create') }}">Form Produk Social Media</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('produksosialmedia.index') }}">Tabel Produk Social Media</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Produk Content Markering<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('produkcontentmarketing.create') }}">Form Produk Content Marketing</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('produkcontentmarketing.index') }}">Tabel Produk Content Marketing</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Produk Branding Design<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('produkbrandingdesign.create') }}">Form Produk Content Marketing</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('produkbrandingdesign.index') }}">Tabel Produk Content Marketing</a>
+                                    </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
@@ -231,6 +257,19 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i>Banner Portofolio Page<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('bannerportofolio.create') }}">Form Banner Portofolio Page</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('bannerportofolio.index') }}">Tabel Banner Portofolio Page</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            
                             <li>
                                 <a href="{{ route('logout') }}"><i class="fa fa-dashboard fa-fw"></i> Logout</a>
                             </li>

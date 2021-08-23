@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Kontak;
 class KontakController extends Controller
 {
+    public function get_all_kontak(){
+        return response()->json(Kontak::all(), 200);
+    }
     public function index(){
         $kontak = Kontak::all();
         return view('admin.kontak.index', compact('kontak'));
