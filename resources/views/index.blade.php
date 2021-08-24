@@ -53,22 +53,30 @@
           <h1 class="font-weight-bold">Produk dan Jasa Kami</h1>
           <h5 class="font-weight-light">Kami siap membantu mengoptimalkan bisnis Anda secara maksimal dengan menggunakan kemampuan profesional dan strategi digital yang tepat.</h5>
           <div class="row" style="margin-top: 80px;">
-            <a href="produk.html" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
-              <img src="{{ asset('frontend/img/temporary.jpg') }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
-              <h5 class="font-weight-bold text-dark">Social Media Handling</h5>
+          @foreach ($produksosialmedia as $data)
+            <a href="/produkpage" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_sosialmedia }}</h5>
             </a>
+            @endforeach
+            @foreach ($produkkontenmarketing as $data)
             <a href="produk.html" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
-              <img src="{{ asset('frontend/img/temporary.jpg') }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
-              <h5 class="font-weight-bold text-dark">Content Marketing</h5>
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_contentmarketing }}</h5>
             </a>
+            @endforeach
+            @foreach ($produkbrandingdesign as $data)
             <a href="produk.html" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
-              <img src="{{ asset('frontend/img/temporary.jpg') }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
-              <h5 class="font-weight-bold text-dark">Branding and Design</h5>
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_brandingdesign }}</h5>
             </a>
+            @endforeach
+            @foreach ($produkphotography as $data)
             <a href="produk.html" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
-              <img src="{{ asset('frontend/img/temporary.jpg') }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
-              <h5 class="font-weight-bold text-dark">Photography</h5>
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_photography }}</h5>
             </a>
+            @endforeach
           </div>
         </div>
     </section>

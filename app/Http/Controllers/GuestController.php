@@ -24,7 +24,10 @@ class GuestController extends Controller
         $feedback = Feedback::all();
         $kontak = Kontak::all();
         $produksosialmedia = ProdukSosialMedia::all();
-        return view('index', ['client' => $client,'portofolio'=>$portofolio,'feedback'=>$feedback, 'kontak'=>$kontak, 'produksosialmedia'=>$produksosialmedia]);
+        $produkbrandingdesign = ProdukBrandingDesign::all();
+        $produkkontenmarketing = ProdukKontenMarketing::all();
+        $produkphotography = ProdukPhotography::all();
+        return view('index', ['client' => $client,'portofolio'=>$portofolio,'feedback'=>$feedback, 'kontak'=>$kontak, 'produksosialmedia'=>$produksosialmedia, 'produkbrandingdesign'=>$produkbrandingdesign, 'produkkontenmarketing'=>$produkkontenmarketing, 'produkphotography'=>$produkphotography]);
     }
     public function produk(){
         $produk = Produk::all();
