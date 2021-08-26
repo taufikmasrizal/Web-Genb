@@ -6,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Tentang | GenB Creative</title>
     <link rel="icon" href="{{ asset('frontend/img/logo.ico') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="{{ asset('frontend/vendor/bootstrap/css/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="/">
-            <img src="{{ asset('frontend/img/logo.png') }}" width="150px" class="d-inline-block align-top" alt="logo">
+            <img id="logo" src="{{ asset('frontend/img/logo.png') }}" width="150px" class="d-inline-block align-top" alt="logo">
         </a>
         <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <img src="{{ asset('frontend/img/hamburger.png') }}" width="30px" alt="hamburger">
@@ -33,14 +31,14 @@
                 <a class="nav-link text-white float-right" href="/tentangpage">Tentang</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white d-inline-block px-4 float-right" id="btnHubungiKami" href="/">Hubungi Kami<img src="{{ asset('frontend/img/arrow.png') }}" class="arrow-right" width="20"/></a>
+                <a class="nav-link text-white d-inline-block px-4 float-right" id="btnHubungiKami" href="/#hubungiKami">Hubungi Kami<img src="{{ asset('frontend/img/arrow.png') }}" class="arrow-right" width="20"/></a>
               </li>
             </ul>
         </div>
     </nav>
 
     <header>
-    <div style="position: relative; background-image: url('frontend/img/temporary.jpg'); height: calc(80vh - 91.9px); background-size: cover;">
+    <div style="position: relative; background-image: url('frontend/img/freepik/tentangbanner.jpg'); height: calc(80vh - 91.9px); background-size: cover;">
         <div class="position-absolute" style="top: 10%; left: 5%;">
           <div class="container">
             <a class="text-white" href="/"><img src="{{ asset('frontend/img/arrow.png') }}" class="arrow-left" width="20" /> Kembali Ke Awal</a>
@@ -57,19 +55,18 @@
     <section style="min-height: 650px; background-color: rgb(20,20,20)">
         <div class="container-fluid py-5 text-white">
             <h1 class="text-center font-weight-bold">GenB Creative</h1>
+            @foreach ($tentang as $data)
             <div class="row" style="margin-top: 50px;">
                 <div class="col-lg-6 px-5 mb-5">
                     <h4 class="font-weight-light">
-                        GenB Creative Agency adalah perusahaan yang hadir di era digital untuk fokus membantu meningkatkan penjualan pasar bisnis UMKM di Indonesia.
-                    </h4><br/>
-                    <h4 class="font-weight-light">
-                        Kami mampu membantu meningkatkan jangkauan bisnis anda melalui sosial media atau platform online lainnya secara maksimal dengan menggunakan strategi digital yang tepat dan kemampuan profesional tim GenB!
+                    {{ $data->deskripsi }}
                     </h4>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-center align-items-center px-5">
-                    <img src="{{ asset('frontend/img/temporary.jpg') }}" class="rounded" width="100%" alt="">
+                    <img src="{{ asset('thumb/'.$data->foto) }}" class="rounded" width="100%" alt="">
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
@@ -86,7 +83,7 @@
       <div class="container-fluid pt-5">
         <div class="row">
           <div class="col-lg-3 text-center mb-5">
-            <a href="index.html"><img src="img/logo.png" width="120px" alt=""></a>
+            <a href="index.html"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
           </div>
           <div class="col-lg-3 col-6 text-left text-white mb-5">
             <h5 class="font-weight-bold">Ikuti Kami:</h5>

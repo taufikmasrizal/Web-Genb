@@ -1,44 +1,33 @@
 @extends('admin.home')
 @section('content')
-<div class="row">
- <div class="col-lg-12">
-<div class="panel panel-default">
-<div class="panel-heading">
-    Form Edit Banner Produk Page
-</div>
-<div class="panel-body">
-<div class="row">
-<div class="col-lg-12">
-<form action="{{ route('bannerproduk.update', $bannerproduk->id) }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-            <label for="judul_banner_produk">Judul Banner Produk</label>
-            <input type="text" class="form-control" name="judul_banner_produk" value="{{$bannerproduk->judul_banner_produk}}">
-</div>
-<div class="form-group">
-    <label>Foto</label>
-    <br><img src="{{ asset('thumb/'.$bannerproduk->foto) }}" style="width: 100px">
-</div>
-<div class="form-group">
-    <label for="foto">Ganti Foto</label>
-    <input type="file" class="form-control" name="foto">
-    <label>*) Jika foto tidak diganti,kosongkan saja</label>
-    <div class="form-group">
-        <button type="submit" class="btn btn-success"> Update </button>
-        <a href="/portofolio" class="btn btn-warning"> Batal</a>
-</div>
-                                            </form>
-                                        </div>
-                                        <!-- /.col-lg-6 (nested) -->
-                                        
-                                        <!-- /.col-lg-6 (nested) -->
-                                    </div>
-                                    <!-- /.row (nested) -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
+    <h1 class="text-center display-5">
+        Edit Banner Produk dan Jasa Page
+    </h1>
+    <form class="mt-5" action="{{ route('bannerproduk.update', $bannerproduk->id) }}" method="post"
+        enctype="multipart/form-data">
+        @csrf
+        <div class="form-group mb-3">
+            <label for="judul_banner_produk">
+                <h5>Judul</h5>
+            </label>
+            <input type="text" class="form-control" name="judul_banner_produk"
+                value="{{ $bannerproduk->judul_banner_produk }}">
+        </div>
+        <div class="form-group mb-3">
+            <label>
+                <h5>Foto</h5>
+            </label>
+            <br><img src="{{ asset('thumb/' . $bannerproduk->foto) }}" style="width: 100px">
+        </div>
+        <div class="form-group mb-3">
+            <label for="foto">
+                <h5>Ganti Foto</h5>
+            </label>
+            <input type="file" class="form-control" name="foto">
+            <label>*) Jika foto tidak diganti,kosongkan saja</label>
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success"> Update </button>
+                <a href="/portofolio" class="btn btn-warning"> Batal</a>
+            </div>
+    </form>
 @endsection

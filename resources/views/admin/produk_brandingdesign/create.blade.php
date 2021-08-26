@@ -1,8 +1,5 @@
 @extends('admin.home')
 @section('content')
-<div class="row">
- <div class="col-lg-12">
-<div class="panel panel-default">
 @if (count($errors) > 0)
     <ul class="alert alert-danger">
         @foreach ($errors->all() as $error)
@@ -10,28 +7,23 @@
         @endforeach
 </ul>
 @endif
-<div class="panel-heading">
-    Form Produk Branding Design
-</div>
-<div class="panel-body">
-<div class="row">
-<div class="col-lg-12">
-<form action="{{ route('produkbrandingdesign.store') }}" method="post" enctype="multipart/form-data">
+<h1 class="text-center display-5">Form Branding and Design</h1>
+<form class="mt-5" action="{{ route('produkbrandingdesign.store') }}" method="post" enctype="multipart/form-data">
 @csrf
-<div class="form-group">
-    <label for="Nama Produk">Nama Produk Branding Design </label>
+<div class="form-group mb-3">
+    <label for="Nama Produk"> <h5>Judul</h5> </label>
     <input type="text" class="form-control" name="nama_produk_brandingdesign">
 </div>
-<div class="form-group">
-    <label for="keterangan"> Keterangan </label>
-    <textarea name="keterangan" class="form-control" name="keterangan"></textarea>
+<div class="form-group mb-3">
+    <label for="keterangan"> <h5>Keterangan</h5> </label>
+    <textarea name="keterangan" class="form-control" name="keterangan" rows="5"></textarea>
 </div>
-<div class="form-group">
-    <label for="foto"> Foto </label>
+<div class="form-group mb-3">
+    <label for="foto"> <h5>Foto</h5> </label>
     <input type="file" class="form-control" name="foto">
 </div>
-<button type="submit" class="btn btn-success">SIMPAN</button>
-<button type="/produk_brandingdesign" class="btn btn-warning">BATAL</button>
+<button type="submit" class="btn btn-success">Simpan</button>
+<button type="/produk_brandingdesign" class="btn btn-warning">Batal</button>
                                             </form>
                                         </div>
                                         <!-- /.col-lg-6 (nested) -->

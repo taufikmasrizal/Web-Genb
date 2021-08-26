@@ -67,6 +67,9 @@ Route::post('/bannerproduk/delete/{id}','BannerProdukController@destroy')->name(
 Route::resource('/bannerportofolio','BannerPortofolioController');
 Route::post('/bannerportofolio/update/{id}', 'BannerPortofolioController@update')->name('bannerportofolio.update');
 Route::post('/bannerportofolio/delete/{id}', 'BannerPortofolioController@destroy')->name('bannerportofolio.destroy');
+Route::resource('/bannertentang','BannerTentangController');
+Route::post('/bannertentang/update/{id}', 'BannerTentangController@update')->name('bannertentang.update');
+Route::post('/bannertentang/delete/{id}', 'BannerTentangController@destroy')->name('bannertentang.destroy');
 Route::resource('/produksosialmedia','ProdukSosialMediaController');
 Route::post('/produksosialmedia/update/{id}', 'ProdukSosialMediaController@update')->name('produksosialmedia.update');
 Route::post('/produksosialmedia/delete/{id}', 'ProdukSosialMediaController@destroy')->name('produksosialmedia.destroy');
@@ -79,6 +82,9 @@ Route::post('/produkbrandingdesign/delete/{id}', 'ProdukBrandingDesignController
 Route::resource('/produkphotography','ProdukPhotographyController');
 Route::post('/produkphotography/update/{id}', 'ProdukPhotographyController@update')->name('produkphotography.update');
 Route::post('/produkphotography/delete/{id}', 'ProdukPhotographyController@destroy')->name('produkphotography.destroy');
+Route::resource('/tentang','TentangController');
+Route::post('/tentang/update/{id}', 'TentangController@update')->name('tentang.update');
+Route::post('/tentang/delete/{id}', 'TentangController@destroy')->name('tentang.destroy');
 Route::group(['middleware' => 'auth'], function () {
  
     Route::get('home', 'HomeController@index')->name('home');

@@ -38,7 +38,8 @@
     </nav>
 
     <header>
-      <div style="position: relative; background-image: url('frontend/img/temporary.jpg'); height: calc(80vh - 91.9px); background-size: cover;">
+    @foreach($bannerportofolio as $data)
+      <div style="position: relative; background-image: url('{{ asset('thumb/' . $data->foto) }}'); height: calc(80vh - 91.9px); background-size: cover;">
         <div class="position-absolute" style="top: 10%; left: 5%;">
           <div class="container">
             <a class="text-white" href="/"><img src="{{ asset('frontend/img/arrow.png') }}" class="arrow-left" width="20" /> Kembali Ke Awal</a>
@@ -50,6 +51,7 @@
           </div>
         </div>
       </div>
+      @endforeach
     </header>
 
     <section>
@@ -59,7 +61,7 @@
                 <div class="col-xl-4 col-md-6 text-center my-5">
                     <img src="{{ asset('thumb/'.$data->foto) }}" width="250px" height="200px" class="rounded mb-5" alt="">
                     <h3 class="font-weight-bold">{{$data->judul_portofolio}}</h3>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                    <h6>{{$data->keterangan}}</h6>
                 </div>
                 @endforeach
             </div>

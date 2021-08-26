@@ -32,7 +32,7 @@ class ProdukContentMarketingController extends Controller
          $foto = $request->foto;
          $namafile = time().'.'.$foto->getClientOriginalExtension();
  
-         Image::make($foto)->resize(180,130)->save('thumb/'.$namafile);
+         Image::make($foto)->resize(1000,950)->save('thumb/'.$namafile);
          $foto->move('images/', $namafile);
  
          $produkkontenmarketing->foto = $namafile;
@@ -51,7 +51,7 @@ class ProdukContentMarketingController extends Controller
              $foto = $request->foto;
              $namafile = time().'.'.$foto->getClientOriginalExtension();
  
-             Image::make($foto)->resize(180,130)->save('thumb/'.$namafile);
+             Image::make($foto)->resize(1000,950)->save('thumb/'.$namafile);
              $foto->move('images/',$namafile);
  
              $produkkontenmarketing->foto = $namafile;
@@ -60,8 +60,8 @@ class ProdukContentMarketingController extends Controller
              $produkkontenmarketing->nama_produk_contentmarketing = $request->nama_produk_contentmarketing;
              $produkkontenmarketing->keterangan       = $request->keterangan;
          }
-         $produksosialmedia->update();
-         return redirect('/produkkontenmarketing')->with('pesan','Data berhasil di update');
+         $produkkontenmarketing->update();
+         return redirect('/produkcontentmarketing')->with('pesan','Data berhasil di update');
      }
      public function destroy($id){
          $produkkontenmarketing = Produk::find($id);
@@ -69,6 +69,6 @@ class ProdukContentMarketingController extends Controller
          File::delete('images/'.$namafile);
          File::delete('thumb/'.$namafile);
          $produkkontenmarketing->delete();
-         return redirect('/produkkontenmarketing')->with('pesan','Foto Berhasil Di Hapus');
+         return redirect('/produkcontentmarketing')->with('pesan','Foto Berhasil Di Hapus');
      }
 }

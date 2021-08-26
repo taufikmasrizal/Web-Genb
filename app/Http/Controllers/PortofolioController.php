@@ -39,7 +39,7 @@ public function dashboard(){
         $foto = $request->foto;
         $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-        Image::make($foto)->resize(180,130)->save('thumb/'.$namafile);
+        Image::make($foto)->resize(1000,900)->save('thumb/'.$namafile);
         $foto->move('images/', $namafile);
 
         $portofolio->foto = $namafile;
@@ -58,7 +58,7 @@ public function dashboard(){
             $foto = $request->foto;
             $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-            Image::make($foto)->resize(180,130)->save('thumb/'.$namafile);
+            Image::make($foto)->resize(1000,900)->save('thumb/'.$namafile);
             $foto->move('images/',$namafile);
 
             $portofolio->foto = $namafile;

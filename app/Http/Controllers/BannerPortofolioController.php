@@ -26,12 +26,12 @@ class BannerPortofolioController extends Controller
             'judul_banner_portofolio'=>'required',
             'foto'=>'required|image|mimes:jpeg,jpg,png'
         ]);
-        $bannerportofolio = new BannerProduk;
+        $bannerportofolio = new BannerPortofolio;
         $bannerportofolio->judul_banner_portofolio = $request->judul_banner_portofolio;
         $foto = $request->foto;
         $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-        Image::make($foto)->resize(180,130)->save('thumb/'.$namafile);
+        Image::make($foto)->resize(5000,4200)->save('thumb/'.$namafile);
         $foto->move('images/', $namafile);
 
         $bannerportofolio->foto = $namafile;
@@ -49,7 +49,7 @@ class BannerPortofolioController extends Controller
             $foto = $request->foto;
             $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-            Image::make($foto)->resize(180,130)->save('thumb/'.$namafile);
+            Image::make($foto)->resize(5000,4200)->save('thumb/'.$namafile);
             $foto->move('images/',$namafile);
 
             $bannerportofolio->foto = $namafile;
