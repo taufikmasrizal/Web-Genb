@@ -17,8 +17,13 @@ use App\BannerPortofolio;
 use App\BannerProduk;
 use App\Tentang;
 use App\BannerTentang;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 class GuestController extends Controller
 {
+    public function awal(){
+        return view('index');
+    }
     public function index(){
         $portofolios = Portofolio::all();
         $bannerportofolio = BannerPortofolio::all();
@@ -52,6 +57,59 @@ class GuestController extends Controller
         $tentang = Tentang::all();
         $bannertentang = BannerTentang::all();
         return view('tentangpage', ['kontak' => $kontak, 'tentang'=>$tentang, 'bannertentang'=>$bannertentang]);
+    }
+    function sendMail(Request $request){
+        
+        $subject = "Contact dari " . $request->input('nama');
+        $nama = $request->input('nama');
+        $email = $request->input('email');
+        $nomor_telp = $request->input('nomor_telp');
+        $pesan = $request->input('pesan');
+
+        $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+        try {
+            // Pengaturan Server
+           // $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+           $mail = new PHPMailer(); // create a new object
+           $mail->IsSMTP(); // enable SMTP
+           $mail->SMTPAuth = true; // authentication enabled
+           $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+           $mail->Host = "smtp.gmail.com";
+           $mail->Port = 465; // or 587                             // TCP port to connect to
+
+            // Siapa yang mengirim email
+
+            // Siapa yang akan menerima email
+            $mail->addAddress('taufikmasrizal1@gmail.com', 'Taufik');     // Add a recipient
+            // $mail->addAddress('ellen@example.com');               // Name is optional
+
+            // ke siapa akan kita balas emailnya
+            $mail->addReplyTo($email, $nama);
+            
+            // $mail->addCC('cc@example.com');
+            // $mail->addBCC('bcc@example.com');
+
+            //Attachments
+            // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+
+            //Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = $subject;
+            $mail->Body    = $pesan;
+            $mail->AltBody = $pesan;
+
+            $mail->send();
+
+            $request->session()->flash('status', 'Terima kasih, kami sudah menerima email anda.');
+            return redirect('');
+
+        } catch (Exception $e) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }
+
     }
     
 }

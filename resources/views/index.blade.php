@@ -136,7 +136,7 @@
       <div class="container text-center text-white py-5">
         <h1 class="font-weight-bold">Hubungi Kami</h1>
         <h5 class="font-weight-light">GenB adalah solusi bagi Anda, para pebisnis yang butuh social media agency untuk membuat tampilan bisnis Anda di media sosial lebih menarik. Free konsultasi, kami siap bantu rancang konsep atau strategi digital dari 0. </h5>
-        <form id="frmHubungiKami" class="invisible" method="post" action="{{ route('hubunginkami.store') }}" style="margin-top: 80px; margin-bottom: 80px;">
+        <form id="frmHubungiKami" class="invisible" method="post" action="{{ route('guest.sendMail') }}" style="margin-top: 80px; margin-bottom: 80px;">
         @csrf
           <div class="form-group text-left">
             <label for="txtName">Name</label>

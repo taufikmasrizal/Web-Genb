@@ -25,6 +25,7 @@ class HubunginkamiController extends Controller
         $hubunginkami->save();
         return redirect('/');
     }
+    
     public function search(Request $request){
         $batas = 5;
         $cari = $request->kata;

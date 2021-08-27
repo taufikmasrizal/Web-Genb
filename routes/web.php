@@ -49,6 +49,7 @@ Route::post('/feedback/update/{id}', 'FeedbackController@update')->name('feedbac
 Route::post('/feedback/delete/{id}','FeedbackController@destroy')->name('feedback.destroy');
 Route::get('/index', 'GuestController@klien');
 Route::post('/','HubunginkamiController@store')->name('hubunginkami.store');
+Route::post('/','GuestController@sendMail')->name('guest.sendMail');
 Route::get('/portofoliopage', 'GuestController@index');
 Route::get('/produkpage', 'GuestController@produk');
 Route::resource('/portofoliopage','GuestController');
