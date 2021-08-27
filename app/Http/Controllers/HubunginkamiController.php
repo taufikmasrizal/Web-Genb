@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\hubunginkami;
+use App\Mail\SendEmailGenb;
+use Illuminate\Support\Facades\Mail;
 class HubunginkamiController extends Controller
 {
     public function index(){
@@ -16,6 +18,17 @@ class HubunginkamiController extends Controller
     {
         return view('index');
     }
+    public function create(array $data){
+        $hubunginkami = Hubunginkami::create([
+            'nama' => $data['nama'],
+            'email' => $data['email'],
+            'nomor_telp' => $data['nomor_telp'],
+            'pesan' => $data['pesan'],
+        ]);
+
+        Mail::to($hubunginkami->email)->send(new SendMail($hubunginkami->nama));
+        return $hubunginkami;
+    }
     public function store(Request $request){
         $hubunginkami = new Hubunginkami;
         $hubunginkami->nama     = $request->nama;
@@ -24,6 +37,7 @@ class HubunginkamiController extends Controller
         $hubunginkami->pesan    = $request->pesan;
         $hubunginkami->save();
         return redirect('/');
+
     }
     
     public function search(Request $request){
