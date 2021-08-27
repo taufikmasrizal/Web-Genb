@@ -16,12 +16,14 @@ use App\BannerHome;
 use App\BannerPortofolio;
 use App\BannerProduk;
 use App\Tentang;
+use App\BannerTentang;
 class GuestController extends Controller
 {
     public function index(){
         $portofolios = Portofolio::all();
         $bannerportofolio = BannerPortofolio::all();
-        return view('portofoliopage', ['portofolios' => $portofolios,'bannerportofolio'=>$bannerportofolio]);
+        $kontak = Kontak::all();
+        return view('portofoliopage', ['portofolios' => $portofolios,'bannerportofolio'=>$bannerportofolio, 'kontak'=>$kontak]);
     }
     public function utama(){
         $portofolio = Portofolio::all();
@@ -48,7 +50,8 @@ class GuestController extends Controller
     public function tentang(){
         $kontak = Kontak::all();
         $tentang = Tentang::all();
-        return view('tentangpage', ['kontak' => $kontak, 'tentang'=>$tentang]);
+        $bannertentang = BannerTentang::all();
+        return view('tentangpage', ['kontak' => $kontak, 'tentang'=>$tentang, 'bannertentang'=>$bannertentang]);
     }
     
 }

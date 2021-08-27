@@ -38,7 +38,8 @@
     </nav>
 
     <header>
-    <div style="position: relative; background-image: url('frontend/img/freepik/tentangbanner.jpg'); height: calc(80vh - 91.9px); background-size: cover;">
+    @foreach($bannertentang as $data)
+    <div style="position: relative; background-image: url('{{ asset('thumb/' . $data->foto) }}'); height: calc(80vh - 91.9px); background-size: cover;">
         <div class="position-absolute" style="top: 10%; left: 5%;">
           <div class="container">
             <a class="text-white" href="/"><img src="{{ asset('frontend/img/arrow.png') }}" class="arrow-left" width="20" /> Kembali Ke Awal</a>
@@ -50,6 +51,7 @@
           </div>
         </div>
       </div>
+      @endforeach
     </header>
 
     <section style="min-height: 650px; background-color: rgb(20,20,20)">
@@ -86,11 +88,11 @@
             <a href="index.html"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
           </div>
           <div class="col-lg-3 col-6 text-left text-white mb-5">
-            <h5 class="font-weight-bold">Ikuti Kami:</h5>
-            <a href="#"><img src="{{ asset('frontend/img/facebook.png') }}" width="50px" alt=""></a>
-            <a href="#"><img src="{{ asset('frontend/img/instagram.png') }}" width="50px" alt=""></a>
-            <a href="#"><img src="{{ asset('frontend/img/linkedin.png') }}" width="50px" alt=""></a>
-          </div>
+                    <h5 class="font-weight-bold">Ikuti Kami:</h5>
+                    <a href="#"><img src="{{ asset('frontend/img/facebook.png') }}" width="50px" alt=""></a>
+                    <a href="https://www.instagram.com/genb.creative/"><img src="{{ asset('frontend/img/instagram.png') }}" width="50px" alt=""></a>
+                    <a href="https://www.linkedin.com/company/genb-creative/mycompany/"><img src="{{ asset('frontend/img/linkedin.png') }}" width="50px" alt=""></a>
+                </div>
           @foreach ($kontak as $data)
           <div class="col-lg-3 col-6 text-left text-white mb-5">
             <h5 class="font-weight-bold">Kontak:</h5>
