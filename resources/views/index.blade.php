@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Home | GenB Creative</title>
-    <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
+    <link rel="icon" href="{{ asset('frontend/img/icon.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
@@ -90,7 +90,7 @@
         <h5 class="font-weight-light">Ingin instagram bisnismu punya tampilan menarik seperti ini?</h5>
         <div id="portofolio" class="invisible"><div class="owl-carousel owl-theme my-5">
             @foreach ($portofolio as $data)
-            <div><img src="{{ asset('thumb/'.$data->foto) }}" alt=""></div>
+            <div><img src="{{ asset('thumb/'.$data->foto) }}" height="300px" alt=""></div>
             @endforeach
         </div></div>  
         <a href="/portofoliopage" class="btn btn-lg text-center text-dark" style="background-color: #FFDE59">Portofolio Lainnya</a>
@@ -136,7 +136,7 @@
       <div class="container text-center text-white py-5">
         <h1 class="font-weight-bold">Hubungi Kami</h1>
         <h5 class="font-weight-light">GenB adalah solusi bagi Anda, para pebisnis yang butuh social media agency untuk membuat tampilan bisnis Anda di media sosial lebih menarik. Free konsultasi, kami siap bantu rancang konsep atau strategi digital dari 0. </h5>
-        <form id="frmHubungiKami" class="invisible" method="post" action="{{ route('guest.sendMail') }}" style="margin-top: 80px; margin-bottom: 80px;">
+        <form id="frmHubungiKami" class="invisible" method="post" action="{{ route('hubunginkami.store') }}" style="margin-top: 80px; margin-bottom: 80px;">
           @csrf
           <div class="form-group text-left">
             <label for="txtName">Name</label>
@@ -239,7 +239,7 @@
                 },
                 1200:{
                     items:4,
-                    nav:true,
+                    nav:false,
                 }
             }
           });

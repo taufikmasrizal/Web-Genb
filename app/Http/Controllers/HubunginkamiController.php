@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\hubunginkami;
+use App\Hubunginkami;
+use PHPMailer\PHPMailer\PHPMailer;
 class HubunginkamiController extends Controller
 {
     public function index(){
@@ -17,6 +18,24 @@ class HubunginkamiController extends Controller
         return view('index');
     }
     public function store(Request $request){
+        ini_set( 'display_errors', 1 );
+        error_reporting( E_ALL );
+        $from = "website@broadencreative.com";
+        $to = "website@broadencreative.com";
+        $subject = "Pesan baru dari " . $request->nama;
+        $message = "Nama : " . $request->nama . "\nEmail : " . $request->email ."\nNomor Telepon : " . $request->nomor_telp . "\n\nPesan : \n" . $request->pesan;
+        $headers = "From: " . $request->email;
+        mail($to,$subject,$message, $headers);
+        
+        ini_set( 'display_errors', 1 );
+        error_reporting( E_ALL );
+        $from = "website@broadencreative.com";
+        $to = $request->email;
+        $subject = "Pesan telah diterima | GenB Creative";
+        $message = "Hi " . $request->nama . ",\n\nTerima kasih sudah menghubungi kami melalui website GenB Creative. Kami akan menghubungi anda dalam waktu secepatnya.\n\nPesan : \n" . $request->pesan . "\n\nSalam,\nGenB Creative";
+        $headers = "From: GenB Creative <website@broadencreative.com>";
+        mail($to,$subject,$message, $headers);
+        
         $hubunginkami = new Hubunginkami;
         $hubunginkami->nama     = $request->nama;
         $hubunginkami->email    = $request->email;
@@ -35,6 +54,6 @@ class HubunginkamiController extends Controller
     public function destroy($id){
         $hubunginkami = Hubunginkami::find($id);
         $hubunginkami->delete();
-        return redirect('index');
+        return redirect()->route('hubunginkami.index');
     }
 }

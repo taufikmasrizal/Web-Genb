@@ -15,7 +15,6 @@
                     <th>Nomor Telp</th>
                     <th>Pesan</th>
                     <th>Created At</th>
-                    <th>Updated At</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -28,7 +27,6 @@
                         <td>{{ $data->nomor_telp }} </td>
                         <td>{{ $data->pesan }} </td>
                         <td>{{ $data->created_at }} </td>
-                        <td>{{ $data->updated_at }} </td>
                         <td>
                             <form action="{{ route('hubunginkami.destroy', $data->id) }}" method="POST">@csrf
 

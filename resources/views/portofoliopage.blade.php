@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Portofolio | GenB Creative</title>
-    <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
+    <link rel="icon" href="{{ asset('frontend/img/icon.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -57,10 +57,10 @@
         <div class="container-fluid py-5">
             <div class="row">
             @foreach ($portofolios as $data)
-                <div class="col-xl-4 col-md-6 text-center my-5">
-                    <img src="{{ asset('thumb/'.$data->foto) }}" width="250px" height="200px" class="rounded mb-5" alt="">
-                    <h3 class="font-weight-bold">{{$data->judul_portofolio}}</h3>
-                    <h6>{{$data->keterangan}}</h6>
+                <div class="portofolio invisible col-xl-4 col-md-6 text-center my-5">
+                    <img src="{{ asset('thumb/'.$data->foto) }}" width="350px" height="250px" class="rounded mb-5" alt="">
+                    <h4>{{$data->judul_portofolio}}</h4>
+                    <p class="lead">{{$data->keterangan}}</p>
                 </div>
                 @endforeach
             </div>
@@ -104,6 +104,10 @@
             classToRemove: 'invisible'
           });
           $("#footer").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeIn',
+            classToRemove: 'invisible'
+          });
+          $(".portofolio").viewportChecker({
             classToAdd: 'animate__animated animate__fadeIn',
             classToRemove: 'invisible'
           });

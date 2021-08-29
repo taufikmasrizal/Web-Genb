@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>GenB Admin</title>
-        <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
+        <link rel="icon" href="{{ asset('frontend/img/icon.png') }}">
         <link href="{{ asset('frontend/styles.css') }}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Tentang | GenB Creative</title>
-    <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
+    <link rel="icon" href="{{ asset('frontend/img/icon.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
@@ -139,7 +139,7 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoibHVpc2xpdiIsImEiOiJja3M0a203amExOWJuMnlvNG0zODNvdzU4In0.tszhBEgD3XZHrrqIE4YcWQ';
         var map = new mapboxgl.Map({
             container: 'map',
-            center: [106.820804, -6.183859],
+            center: [106.6315, -6.1695],
             zoom: 9,
             style: 'mapbox://styles/mapbox/streets-v11'
         });
@@ -148,7 +148,7 @@
         const marker = new mapboxgl.Marker({
             color: "#db382c",
             draggable: false
-        }).setLngLat([106.820804, -6.183859]).addTo(map);
+        }).setLngLat([106.6315, -6.1695]).addTo(map);
     </script>
 </body>
 </html>

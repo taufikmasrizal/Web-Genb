@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Portofolio;
+use App\portofolio;
 use DataTables;
 use File;
 use Image;

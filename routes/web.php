@@ -59,6 +59,7 @@ Route::resource('/kontak','KontakController');
 Route::post('/kontak/update/{id}', 'KontakController@update')->name('kontak.update');
 Route::post('/kontak/delete/{id}','KontakController@destroy')->name('kontak.destroy');
 Route::get('/hubunginkami/search','HubunginkamiController@search')->name('hubunginkami.search');
+Route::post('/hubunginkami/delete/{id}','HubunginkamiController@destroy')->name('hubunginkami.destroy');
 Route::resource('/bannerhome','BannerHomeController');
 Route::post('/bannerhome/update/{id}', 'BannerHomeController@update')->name('bannerhome.update');
 Route::post('/bannerhome/delete/{id}','BannerHomeController@destroy')->name('bannerhome.destroy');
