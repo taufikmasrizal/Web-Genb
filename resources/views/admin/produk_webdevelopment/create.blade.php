@@ -7,15 +7,15 @@
             @endforeach
         </ul>
     @endif
-    <h1 class="text-center display-5">Form Social Media Handling</h1>
-    <form class="mt-5" action="{{ route('produksosialmedia.store') }}" method="post"
+    <h1 class="text-center display-5">Form Web Development</h1>
+    <form class="mt-5" action="{{ route('produkwebdevelopment.store') }}" method="post"
         enctype="multipart/form-data">
         @csrf
         <div class="form-group mb-3">
             <label for="Nama Produk">
                 <h5>Judul</h5>
             </label>
-            <input type="text" class="form-control" name="nama_produk_sosialmedia">
+            <input type="text" class="form-control" name="nama_produk_webdevelopment">
         </div>
         <div class="form-group mb-3">
             <label for="keterangan">
@@ -30,6 +30,6 @@
             <input type="file" class="form-control" name="foto">
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>
-        <button type="/produk_sosialmedia" class="btn btn-warning">Batal</button>
+        <button type="/produk_webdevelopment" class="btn btn-warning">Batal</button>
     </form>
 @endsection

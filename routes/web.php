@@ -84,6 +84,12 @@ Route::post('/produkbrandingdesign/delete/{id}', 'ProdukBrandingDesignController
 Route::resource('/produkphotography','ProdukPhotographyController');
 Route::post('/produkphotography/update/{id}', 'ProdukPhotographyController@update')->name('produkphotography.update');
 Route::post('/produkphotography/delete/{id}', 'ProdukPhotographyController@destroy')->name('produkphotography.destroy');
+Route::resource('/produkwebdevelopment','ProdukWebDevelopmentController');
+Route::post('/produkwebdevelopment/update/{id}', 'ProdukWebDevelopmentController@update')->name('produkwebdevelopment.update');
+Route::post('/produkwebdevelopment/delete/{id}', 'ProdukWebDevelopmentController@destroy')->name('produkwebdevelopment.destroy');
+Route::resource('/produkvideography','ProdukVideographyController');
+Route::post('/produkvideography/update/{id}', 'ProdukVideographyController@update')->name('produkvideography.update');
+Route::post('/produkvideography/delete/{id}', 'ProdukVideographyController@destroy')->name('produkvideography.destroy');
 Route::resource('/tentang','TentangController');
 Route::post('/tentang/update/{id}', 'TentangController@update')->name('tentang.update');
 Route::post('/tentang/delete/{id}', 'TentangController@destroy')->name('tentang.destroy');

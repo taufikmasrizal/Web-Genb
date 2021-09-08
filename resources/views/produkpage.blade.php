@@ -100,7 +100,25 @@
                     </div>
                 </div>
                 <div class="float-left product shadow invisible" id="photographyFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
-        @endforeach
+            @endforeach
+            @foreach ($produkvideography as $data)
+                <div class="float-left product">
+                    <div class="container p-5 text-left invisible" id="videographyDeskripsi">
+                        <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_videography }}</h1>
+                        <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
+                    </div>
+                </div>
+                <div class="float-right product shadow invisible" id="videographyFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+            @endforeach
+            @foreach ($produkwebdevelopment as $data)
+                <div class="float-right product">
+                    <div class="container p-5 text-right invisible" id="webdevelopmentDeskripsi">
+                        <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_webdevelopment }}</h1>
+                        <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
+                    </div>
+                </div>
+                <div class="float-left product shadow invisible" id="webdevelopmentFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+            @endforeach
         </div>
     </section>
 
@@ -174,6 +192,22 @@
             classToRemove: 'invisible'
           });
           $("#photographyFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft',
+            classToRemove: 'invisible'
+          });
+          $("#videographyDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#videographyFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight',
+            classToRemove: 'invisible'
+          });
+          $("#webdevelopmentDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#webdevelopmentFoto").viewportChecker({
             classToAdd: 'animate__animated animate__fadeInLeft',
             classToRemove: 'invisible'
           });

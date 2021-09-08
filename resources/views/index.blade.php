@@ -57,27 +57,39 @@
           <h5 class="font-weight-light">Kami siap membantu mengoptimalkan bisnis Anda secara maksimal dengan menggunakan kemampuan profesional dan strategi digital yang tepat.</h5>
           <div id="produkJasa" class="row invisible" style="margin-top: 80px;">
           @foreach ($produksosialmedia as $data)
-            <a href="/produkpage" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center mb-5" style="text-decoration: none;">
               <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
               <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_sosialmedia }}</h5>
             </a>
             @endforeach
             @foreach ($produkkontenmarketing as $data)
-            <a href="/produkpage" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center mb-5" style="text-decoration: none;">
               <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
               <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_contentmarketing }}</h5>
             </a>
             @endforeach
             @foreach ($produkbrandingdesign as $data)
-            <a href="/produkpage" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center mb-5" style="text-decoration: none;">
               <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
               <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_brandingdesign }}</h5>
             </a>
             @endforeach
             @foreach ($produkphotography as $data)
-            <a href="/produkpage" class="col-lg-3 col-md-6 text-center mb-5" style="text-decoration: none;">
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center mb-5" style="text-decoration: none;">
               <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
               <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_photography }}</h5>
+            </a>
+            @endforeach
+            @foreach ($produkvideography as $data)
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center mb-5" style="text-decoration: none;">
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_videography }}</h5>
+            </a>
+            @endforeach
+            @foreach ($produkwebdevelopment as $data)
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center mb-5" style="text-decoration: none;">
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_webdevelopment }}</h5>
             </a>
             @endforeach
           </div>

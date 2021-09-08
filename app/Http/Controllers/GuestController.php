@@ -17,8 +17,9 @@ use App\BannerPortofolio;
 use App\BannerProduk;
 use App\Tentang;
 use App\BannerTentang;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use App\ProdukVideography;
+use App\ProdukWebDevelopment;
+
 class GuestController extends Controller
 {
     public function index(){
@@ -36,8 +37,10 @@ class GuestController extends Controller
         $produkbrandingdesign = ProdukBrandingDesign::all();
         $produkkontenmarketing = ProdukKontenMarketing::all();
         $produkphotography = ProdukPhotography::all();
+        $produkwebdevelopment = ProdukWebDevelopment::all();
+        $produkvideography = ProdukVideography::all();
         $bannerhome = BannerHome::all();
-        return view('index', ['client' => $client,'portofolio'=>$portofolio,'feedback'=>$feedback, 'kontak'=>$kontak, 'produksosialmedia'=>$produksosialmedia, 'produkbrandingdesign'=>$produkbrandingdesign, 'produkkontenmarketing'=>$produkkontenmarketing, 'produkphotography'=>$produkphotography, 'bannerhome'=>$bannerhome]);
+        return view('index', ['client' => $client,'portofolio'=>$portofolio,'feedback'=>$feedback, 'kontak'=>$kontak, 'produksosialmedia'=>$produksosialmedia, 'produkbrandingdesign'=>$produkbrandingdesign, 'produkkontenmarketing'=>$produkkontenmarketing, 'produkphotography'=>$produkphotography, 'produkvideography'=>$produkvideography, 'produkwebdevelopment'=>$produkwebdevelopment, 'bannerhome'=>$bannerhome]);
     }
     public function produk(){
         $produk = Produk::all();
@@ -46,8 +49,10 @@ class GuestController extends Controller
         $produkbrandingdesign = ProdukBrandingDesign::all();
         $produkkontenmarketing = ProdukKontenMarketing::all();
         $produkphotography = ProdukPhotography::all();
+        $produkwebdevelopment = ProdukWebDevelopment::all();
+        $produkvideography = ProdukVideography::all();
         $bannerproduk = BannerProduk::all();
-        return view('produkpage', ['produk' => $produk,'kontak'=>$kontak,'produksosialmedia'=>$produksosialmedia ,'produkbrandingdesign'=>$produkbrandingdesign, 'produkkontenmarketing'=>$produkkontenmarketing, 'produkphotography'=>$produkphotography, 'bannerproduk'=>$bannerproduk]);
+        return view('produkpage', ['produk' => $produk,'kontak'=>$kontak,'produksosialmedia'=>$produksosialmedia ,'produkbrandingdesign'=>$produkbrandingdesign, 'produkkontenmarketing'=>$produkkontenmarketing, 'produkphotography'=>$produkphotography, 'produkvideography'=>$produkvideography, 'produkwebdevelopment'=>$produkwebdevelopment, 'bannerproduk'=>$bannerproduk]);
     }
     public function tentang(){
         $kontak = Kontak::all();

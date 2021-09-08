@@ -138,6 +138,30 @@
                                 </nav>
                             </div>
 
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVideography" aria-expanded="false" aria-controls="collapsePhotography">
+                                <div class="sb-nav-link-icon"><i class="fas fa-video"></i></div>
+                                Videography
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseVideography" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('produkvideography.create') }}">Form Videography</a>
+                                    <a class="nav-link" href="{{ route('produkvideography.index') }}">Tabel Videography</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseWebDevelopment" aria-expanded="false" aria-controls="collapsePhotography">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
+                                Web Development
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseWebDevelopment" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('produkwebdevelopment.create') }}">Form Web Development</a>
+                                    <a class="nav-link" href="{{ route('produkwebdevelopment.index') }}">Tabel Web Development</a>
+                                </nav>
+                            </div>
+
                             <div class="sb-sidenav-menu-heading text-white">Portofolio Page</div>
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBannerPortofolioPage" aria-expanded="false" aria-controls="collapseBannerPortofolioPage">
