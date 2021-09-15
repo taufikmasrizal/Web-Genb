@@ -119,6 +119,15 @@
                 </div>
                 <div class="float-left product shadow invisible" id="webdevelopmentFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
             @endforeach
+            @foreach ($produkmarketresearch as $data)
+                <div class="float-left product">
+                    <div class="container p-5 text-left invisible" id="marketresearchDeskripsi">
+                        <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_marketresearch }}</h1>
+                        <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
+                    </div>
+                </div>
+                <div class="float-right product shadow invisible" id="marketresearchFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+            @endforeach
         </div>
     </section>
 
@@ -209,6 +218,14 @@
           });
           $("#webdevelopmentFoto").viewportChecker({
             classToAdd: 'animate__animated animate__fadeInLeft',
+            classToRemove: 'invisible'
+          });
+          $("#marketresearchDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#marketresearchFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight',
             classToRemove: 'invisible'
           });
           $("#footer").viewportChecker({

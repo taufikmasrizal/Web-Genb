@@ -90,6 +90,9 @@ Route::post('/produkwebdevelopment/delete/{id}', 'ProdukWebDevelopmentController
 Route::resource('/produkvideography','ProdukVideographyController');
 Route::post('/produkvideography/update/{id}', 'ProdukVideographyController@update')->name('produkvideography.update');
 Route::post('/produkvideography/delete/{id}', 'ProdukVideographyController@destroy')->name('produkvideography.destroy');
+Route::resource('/produkmarketresearch','ProdukMarketResearchController');
+Route::post('/produkmarketresearch/update/{id}', 'ProdukMarketResearchController@update')->name('produkmarketresearch.update');
+Route::post('/produkmarketresearch/delete/{id}', 'ProdukMarketResearchController@destroy')->name('produkmarketresearch.destroy');
 Route::resource('/tentang','TentangController');
 Route::post('/tentang/update/{id}', 'TentangController@update')->name('tentang.update');
 Route::post('/tentang/delete/{id}', 'TentangController@destroy')->name('tentang.destroy');

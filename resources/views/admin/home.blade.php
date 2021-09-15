@@ -138,7 +138,7 @@
                                 </nav>
                             </div>
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVideography" aria-expanded="false" aria-controls="collapsePhotography">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVideography" aria-expanded="false" aria-controls="collapseVideography">
                                 <div class="sb-nav-link-icon"><i class="fas fa-video"></i></div>
                                 Videography
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -150,7 +150,7 @@
                                 </nav>
                             </div>
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseWebDevelopment" aria-expanded="false" aria-controls="collapsePhotography">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseWebDevelopment" aria-expanded="false" aria-controls="collapseWebDevelopment">
                                 <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
                                 Web Development
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -159,6 +159,18 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('produkwebdevelopment.create') }}">Form Web Development</a>
                                     <a class="nav-link" href="{{ route('produkwebdevelopment.index') }}">Tabel Web Development</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMarketResearch" aria-expanded="false" aria-controls="collapseMarketResearch">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Market Research
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseMarketResearch" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('produkmarketresearch.create') }}">Form Market Research</a>
+                                    <a class="nav-link" href="{{ route('produkmarketresearch.index') }}">Tabel Market Research</a>
                                 </nav>
                             </div>
 
