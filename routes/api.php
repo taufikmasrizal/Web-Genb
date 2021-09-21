@@ -21,3 +21,4 @@ Route::get('kontak','KontakController@get_all_kontak');
 Route::post('kontak','KontakController@create');
 Route::put('/kontak/{id}','KontakController@update');
 Route::delete('/kontak/{id}','KontakController@delete');
+

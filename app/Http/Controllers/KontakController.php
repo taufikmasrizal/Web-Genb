@@ -15,8 +15,13 @@ class KontakController extends Controller
         $kontak = Kontak::all();
         return view('admin.kontak.index', compact('kontak'));
     }
-    public function create(){
-        return view('admin.kontak.create');
+    public function create(Request $request){
+        $kontak = new Kontak;
+        $kontak->no_kontak        = $request->no_kontak;
+        $kontak->email            = $request->email;
+        $kontak->alamat            = $request->alamat;
+        $kontak->save();
+        return "Data Berhasil Masuk";
     }
     public function store(Request $request){
         $kontak = new Kontak;
@@ -25,59 +30,6 @@ class KontakController extends Controller
         $kontak->alamat            = $request->alamat;
         $kontak->save();
         return redirect('/kontak');
-    }
-    function sendMail(Request $request){
-        
-        $subject = "Contact dari " . $request->input('no_kontak');
-        $email = $request->input('email');
-        $message = $request->input('message');
-
-        $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-        try {
-            // Pengaturan Server
-           // $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.mail.yahoo.com';                  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'alamatemailkamu@yahoo.com';                 // SMTP username
-            $mail->Password = 'Passw0rdEmailKamu';                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
-
-            // Siapa yang mengirim email
-            $mail->setFrom("alamatemailkamu@yahoo.com", "Ardianta Pargo");
-
-            // Siapa yang akan menerima email
-            $mail->addAddress('info@petanikode.com', 'Petani Kode');     // Add a recipient
-            // $mail->addAddress('ellen@example.com');               // Name is optional
-
-            // ke siapa akan kita balas emailnya
-            $mail->addReplyTo($emailAddress, $name);
-            
-            // $mail->addCC('cc@example.com');
-            // $mail->addBCC('bcc@example.com');
-
-            //Attachments
-            // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-
-            //Content
-            $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = $subject;
-            $mail->Body    = $message;
-            $mail->AltBody = $message;
-
-            $mail->send();
-
-            $request->session()->flash('status', 'Terima kasih, kami sudah menerima email anda.');
-            return view('contact-form');
-
-        } catch (Exception $e) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }
-
     }
     public function edit($id){
         $kontak = Kontak::find($id);
@@ -89,11 +41,11 @@ class KontakController extends Controller
         $kontak->email  = $request->email;
         $kontak->alamat  = $request->alamat;
         $kontak->update();
-        return redirect('/kontak');
+        return "Data Berhasil di update";
     }
     public function destroy($id){
         $kontak = Kontak::find($id);
         $kontak->delete();
-        return redirect('/kontak');
+        return "Data Berhasil Di Hapus";
     }
 }

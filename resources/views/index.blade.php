@@ -33,6 +33,9 @@
                 <a class="nav-link text-white float-right" href="/tentangpage">Tentang</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link text-white float-right" href="{{ route('datacollection.create') }}">Data Collection</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link text-white d-inline-block px-4 float-right" id="btnHubungiKami" href="/">Hubungi Kami<img src="{{ asset('frontend/img/arrow.png') }}" class="arrow-right" width="20"/></a>
               </li>
             </ul>
