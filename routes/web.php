@@ -22,6 +22,12 @@ Route::get('/produkpage', function () {
 Route::get('/tentangpage', function () {
     return view('tentangpage');
 });
+Route::get('/datacollection', function () {
+    return view('datacollection');
+});
+Route::get('/datacollection/success', function () {
+    return view('datacollection/success');
+});
 
 
 Route::resource('/portofolio','PortofolioController');
@@ -55,6 +61,8 @@ Route::get('/produkpage', 'GuestController@produk');
 Route::resource('/portofoliopage','GuestController');
 Route::get('/tentangpage','GuestController@tentang');
 Route::resource('/hubunginkami','HubunginkamiController');
+Route::resource('/datacollection','DataCollectionController');
+Route::post('/datacollection','DataCollectionController@store')->name('datacollection.store');
 Route::resource('/kontak','KontakController');
 Route::post('/kontak/update/{id}', 'KontakController@update')->name('kontak.update');
 Route::post('/kontak/delete/{id}','KontakController@destroy')->name('kontak.destroy');
