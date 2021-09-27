@@ -58,6 +58,7 @@ Route::resource('/portofoliopage','GuestController');
 Route::get('/tentangpage','GuestController@tentang');
 Route::resource('/hubunginkami','HubunginkamiController');
 Route::resource('/datacollection','DataCollectionController');
+Route::get('/print','PrintController@print')->name('print');
 Route::post('/datacollection','DataCollectionController@store')->name('datacollection.store');
 Route::resource('/kontak','KontakController');
 Route::post('/kontak/update/{id}', 'KontakController@update')->name('kontak.update');

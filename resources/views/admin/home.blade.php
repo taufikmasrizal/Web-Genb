@@ -190,7 +190,16 @@
                             </div>
 
                             <div class="sb-sidenav-menu-heading text-white">Other</div>
-
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBannerTentang" aria-expanded="false" aria-controls="collapseBannerTentang">
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
+                                Data Collection
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseBannerTentang" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('datacollection.index') }}">Tabel Data Collection</a>
+                                </nav>
+                            </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFooter" aria-expanded="false" aria-controls="collapseFooter">
                                 <div class="sb-nav-link-icon"><i class="fas fa-shoe-prints"></i></div>
                                 Footer

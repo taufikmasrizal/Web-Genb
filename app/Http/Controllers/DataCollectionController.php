@@ -4,8 +4,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Datacollection;
+use PDF;
 class DataCollectionController extends Controller
 {
+    public function index(){
+        $batas = 4;
+        $datacollection = Datacollection::orderBy('id','desc')->paginate($batas);
+        $no = $batas * ($datacollection->currentPage() - 1);
+        return view('admin.datacollection.index', compact('datacollection', 'no'));
+     }
     public function create(){
          return view('datacollection');
      }
@@ -26,5 +33,10 @@ class DataCollectionController extends Controller
         $datacollection->pengeluaranperbulan  = $request->pengeluaranperbulan;
         $datacollection->save();
         return view('datacollection');
+    }
+    public function destroy($id){
+        $datacollection = Datacollection::find($id);
+        $datacollection->delete();
+        return redirect('/datacollection');
     }
 }
