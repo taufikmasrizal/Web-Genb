@@ -22,8 +22,11 @@ Route::get('/produkpage', function () {
 Route::get('/tentangpage', function () {
     return view('tentangpage');
 });
-Route::get('/default', function () {
-    return view('default');
+Route::get('/datacollection', function () {
+    return view('datacollection');
+});
+Route::get('/datacollection/success', function () {
+    return view('datacollection/success');
 });
 
 
@@ -44,8 +47,8 @@ Route::get('/portofolio/json','PortofolioController@json');
 Route::get('/admin', 'AuthController@showFormLogin')->name('login');
 Route::get('/admin', 'AuthController@showFormLogin')->name('login');
 Route::post('/auth/login', 'AuthController@login')->name('auth.login');
-Route::get('register', 'AuthController@showFormRegister')->name('register');
-Route::post('register', 'AuthController@register');
+//Route::get('register', 'AuthController@showFormRegister')->name('register');
+//Route::post('register', 'AuthController@register');
 Route::get('/', 'GuestController@utama');
 Route::resource('/feedback','FeedbackController');
 Route::post('/feedback/update/{id}', 'FeedbackController@update')->name('feedback.update');
@@ -60,10 +63,12 @@ Route::resource('/hubunginkami','HubunginkamiController');
 Route::resource('/datacollection','DataCollectionController');
 Route::get('/print','PrintController@print')->name('print');
 Route::post('/datacollection','DataCollectionController@store')->name('datacollection.store');
+Route::post('/datacollection/{id}','DataCollectionController@destroy')->name('datacollection.destroy');
 Route::resource('/kontak','KontakController');
 Route::post('/kontak/update/{id}', 'KontakController@update')->name('kontak.update');
 Route::post('/kontak/delete/{id}','KontakController@destroy')->name('kontak.destroy');
 Route::get('/hubunginkami/search','HubunginkamiController@search')->name('hubunginkami.search');
+Route::post('/hubunginkami/delete/{id}','HubunginkamiController@destroy')->name('hubunginkami.destroy');
 Route::resource('/bannerhome','BannerHomeController');
 Route::post('/bannerhome/update/{id}', 'BannerHomeController@update')->name('bannerhome.update');
 Route::post('/bannerhome/delete/{id}','BannerHomeController@destroy')->name('bannerhome.destroy');
@@ -88,6 +93,15 @@ Route::post('/produkbrandingdesign/delete/{id}', 'ProdukBrandingDesignController
 Route::resource('/produkphotography','ProdukPhotographyController');
 Route::post('/produkphotography/update/{id}', 'ProdukPhotographyController@update')->name('produkphotography.update');
 Route::post('/produkphotography/delete/{id}', 'ProdukPhotographyController@destroy')->name('produkphotography.destroy');
+Route::resource('/produkwebdevelopment','ProdukWebDevelopmentController');
+Route::post('/produkwebdevelopment/update/{id}', 'ProdukWebDevelopmentController@update')->name('produkwebdevelopment.update');
+Route::post('/produkwebdevelopment/delete/{id}', 'ProdukWebDevelopmentController@destroy')->name('produkwebdevelopment.destroy');
+Route::resource('/produkvideography','ProdukVideographyController');
+Route::post('/produkvideography/update/{id}', 'ProdukVideographyController@update')->name('produkvideography.update');
+Route::post('/produkvideography/delete/{id}', 'ProdukVideographyController@destroy')->name('produkvideography.destroy');
+Route::resource('/produkmarketresearch','ProdukMarketResearchController');
+Route::post('/produkmarketresearch/update/{id}', 'ProdukMarketResearchController@update')->name('produkmarketresearch.update');
+Route::post('/produkmarketresearch/delete/{id}', 'ProdukMarketResearchController@destroy')->name('produkmarketresearch.destroy');
 Route::resource('/tentang','TentangController');
 Route::post('/tentang/update/{id}', 'TentangController@update')->name('tentang.update');
 Route::post('/tentang/delete/{id}', 'TentangController@destroy')->name('tentang.destroy');

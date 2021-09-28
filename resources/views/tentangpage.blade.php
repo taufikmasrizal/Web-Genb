@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Tentang | GenB Creative</title>
-    <link rel="icon" href="{{ asset('frontend/img/logo.ico') }}">
+    <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -31,6 +32,9 @@
                 <a class="nav-link text-white float-right" href="/tentangpage">Tentang</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link text-white float-right" href="{{ route('datacollection.create') }}">Data Collection</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link text-white d-inline-block px-4 float-right" id="btnHubungiKami" href="/#hubungiKami">Hubungi Kami<img src="{{ asset('frontend/img/arrow.png') }}" class="arrow-right" width="20"/></a>
               </li>
             </ul>
@@ -47,7 +51,7 @@
         </div>
         <div class="position-absolute" style="bottom: 20%; left: 5%;">
           <div class="container">
-            <h1 class="font-weight-bold text-white">Tentang Kami</h1>
+            <h1 class="font-weight-bold text-white invisible" id="title">Tentang Kami</h1>
           </div>
         </div>
       </div>
@@ -59,12 +63,12 @@
             <h1 class="text-center font-weight-bold">GenB Creative</h1>
             @foreach ($tentang as $data)
             <div class="row" style="margin-top: 50px;">
-                <div class="col-lg-6 px-5 mb-5">
+                <div class="col-lg-6 px-5 mb-5 invisible" id="tentangDeskripsi">
                     <h4 class="font-weight-light">
                     {{ $data->deskripsi }}
                     </h4>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-center align-items-center px-5">
+                <div class="col-lg-6 d-flex justify-content-center align-items-center px-5 invisible" id="tentangFoto">
                     <img src="{{ asset('thumb/'.$data->foto) }}" class="rounded" width="100%" alt="">
                 </div>
             </div>
@@ -83,9 +87,9 @@
 
     <footer style="background-color: #2C2C2C;">
       <div class="container-fluid pt-5">
-        <div class="row">
+        <div class="row invisible" id="footer">
           <div class="col-lg-3 text-center mb-5">
-            <a href="index.html"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
+            <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
           </div>
           <div class="col-lg-3 col-6 text-left text-white mb-5">
                     <h5 class="font-weight-bold">Ikuti Kami:</h5>
@@ -111,20 +115,44 @@
 
     <script src="{{ asset('frontend/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoibHVpc2xpdiIsImEiOiJja3M0a203amExOWJuMnlvNG0zODNvdzU4In0.tszhBEgD3XZHrrqIE4YcWQ';
-        var map = new mapboxgl.Map({
-            container: 'map',
-            center: [106.820804, -6.183859],
-            zoom: 9,
-            style: 'mapbox://styles/mapbox/streets-v11'
+      $(document).ready(function(){
+            $("#title").viewportChecker({
+              classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+              classToRemove: 'invisible'
+            });
+            $("#tentangDeskripsi").viewportChecker({
+              classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+              classToRemove: 'invisible'
+            });
+            $("#tentangFoto").viewportChecker({
+              classToAdd: 'animate__animated animate__fadeInRight animate__faster',
+              classToRemove: 'invisible'
+            });
+            $("#map").viewportChecker({
+              classToAdd: 'animate__animated animate__fadeIn animate__slow',
+              classToRemove: 'invisible'
+            });
+            $("#footer").viewportChecker({
+              classToAdd: 'animate__animated animate__fadeIn',
+              classToRemove: 'invisible'
+            });
         });
-        map.addControl(new mapboxgl.NavigationControl());
-        map.scrollZoom.disable();
-        const marker = new mapboxgl.Marker({
-            color: "#db382c",
-            draggable: false
-        }).setLngLat([106.820804, -6.183859]).addTo(map);
-    </script>
+
+      mapboxgl.accessToken = 'pk.eyJ1IjoibHVpc2xpdiIsImEiOiJja3M0a203amExOWJuMnlvNG0zODNvdzU4In0.tszhBEgD3XZHrrqIE4YcWQ';
+      var map = new mapboxgl.Map({
+          container: 'map',
+          center: [106.6315, -6.1695],
+          zoom: 9,
+          style: 'mapbox://styles/mapbox/streets-v11'
+      });
+      map.addControl(new mapboxgl.NavigationControl());
+      map.scrollZoom.disable();
+      const marker = new mapboxgl.Marker({
+          color: "#db382c",
+          draggable: false
+      }).setLngLat([106.6315, -6.1695]).addTo(map);
+  </script>
 </body>
 </html>

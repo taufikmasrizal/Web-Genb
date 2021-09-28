@@ -5,7 +5,16 @@
         <div class="alert alert-success">
             {{ Session::get('pesan') }}</div>
     @endif
-    <div class="table-responsive mt-5">
+    <div class="row my-5">
+        <div class="col-lg-12">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Search</span>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    
+    <div class="table-responsive">
         <table class="table">
             <thead class="table-dark">
                 <tr>
@@ -58,5 +67,5 @@
             </tbody>
         </table>
     </div>
-    <div style="float: right">{{ $datacollection->links() }}</div>
+    <div class="mt-3" style="float: right">{{ $datacollection->links() }}</div>
 @endsection

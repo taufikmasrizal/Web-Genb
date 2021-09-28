@@ -30,7 +30,7 @@ class TentangController extends Controller
          $foto = $request->foto;
          $namafile = time().'.'.$foto->getClientOriginalExtension();
  
-         Image::make($foto)->resize(1000,950)->save('thumb/'.$namafile);
+         Image::make($foto)->resize(1200,800)->save('thumb/'.$namafile);
          $foto->move('images/', $namafile);
  
          $tentang->foto = $namafile;
@@ -48,7 +48,7 @@ class TentangController extends Controller
              $foto = $request->foto;
              $namafile = time().'.'.$foto->getClientOriginalExtension();
  
-             Image::make($foto)->resize(1000,950)->save('thumb/'.$namafile);
+             Image::make($foto)->resize(1200,800)->save('thumb/'.$namafile);
              $foto->move('images/',$namafile);
  
              $tentang->foto = $namafile;

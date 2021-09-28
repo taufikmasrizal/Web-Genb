@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Home | GenB Creative</title>
-    <link rel="icon" href="{{ asset('frontend/img/logo.ico') }}">
+    <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
@@ -15,11 +15,11 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="index.html">
-            <img src="{{ asset('frontend/img/logo.png') }}" width="150px" class="d-inline-block align-top" alt="logo">
+        <a class="navbar-brand" href="/">
+            <img id="logo" src="{{ asset('frontend/img/logo.png') }}" width="150px" class="d-inline-block align-top" alt="logo">
         </a>
         <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <img src="img/hamburger.png" width="30px" alt="hamburger">
+          <img src="{{ asset('frontend/img/hamburger.png') }}" width="30px" alt="hamburger">
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
@@ -84,6 +84,24 @@
               <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_photography }}</h5>
             </a>
             @endforeach
+            @foreach ($produkvideography as $data)
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center my-5" style="text-decoration: none;">
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_videography }}</h5>
+            </a>
+            @endforeach
+            @foreach ($produkwebdevelopment as $data)
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center my-5" style="text-decoration: none;">
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_webdevelopment }}</h5>
+            </a>
+            @endforeach
+            @foreach ($produkmarketresearch as $data)
+            <a href="/produkpage" class="col-lg-4 col-md-6 text-center my-5" style="text-decoration: none;">
+              <img src="{{ asset('thumb/'.$data->foto) }}" width="200px" height="200px" class="mb-5" style="border-radius: 50%;" alt="">
+              <h5 class="font-weight-bold text-dark">{{ $data->nama_produk_marketresearch }}</h5>
+            </a>
+            @endforeach
           </div>
         </div>
     </section>
@@ -97,16 +115,16 @@
             <div><img src="{{ asset('thumb/'.$data->foto) }}" alt=""></div>
             @endforeach
         </div></div>  
-        <a href="/portofolio" class="btn btn-lg text-center text-dark" style="background-color: #FFDE59">Portofolio Lainnya</a>
+        <a href="/portofoliopage" class="btn btn-lg text-center text-dark" style="background-color: #FFDE59">Portofolio Lainnya</a>
       </div>
         </div>
         
     </section>
 
-    <section style="min-height: 1000px;">
+    <section>
       <div class="container-fluid text-center py-5">
-      <h1 class="font-weight-bold">Portofolio Kami</h1>
-        <h5 class="font-weight-light">Ingin instagram bisnismu punya tampilan menarik seperti ini?</h5>
+      <h1 class="font-weight-bold">Klien Kami</h1>
+        <h5 class="font-weight-light">Jadilah bagian dari UMKM yang telah bermitra dengan kami.</h5>
             <div id="klien" class="row invisible">
             @foreach ($client as $data)
                 <div class="col-xl-4 col-md-6 text-center my-5">
@@ -116,7 +134,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="mt-5">
+        <div class="mt-5 d-none">
           <h1 class="font-weight-bold text-center">Bukti Kepuasan Klien</h1>
           <h5 class="font-weight-light text-center">Berikut adalah bukti kepuasan para UMKM tentang layanan kami</h5>
           <div class="container">

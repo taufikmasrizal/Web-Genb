@@ -7,13 +7,14 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>GenB Admin</title>
+        <link rel="icon" href="{{ asset('frontend/img/logoblue.png') }}">
         <link href="{{ asset('frontend/styles.css') }}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand" style="background-color: rgb(20,20,20)">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3 text-white" href="index.html">GenB Admin</a>
+            <a class="navbar-brand ps-3 text-white">GenB Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 text-white" id="sidebarToggle" href="#!"><i class="fas fa-bars fa-2x"></i></button>
             <!-- Navbar-->
@@ -137,6 +138,42 @@
                                 </nav>
                             </div>
 
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVideography" aria-expanded="false" aria-controls="collapseVideography">
+                                <div class="sb-nav-link-icon"><i class="fas fa-video"></i></div>
+                                Videography
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseVideography" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('produkvideography.create') }}">Form Videography</a>
+                                    <a class="nav-link" href="{{ route('produkvideography.index') }}">Tabel Videography</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseWebDevelopment" aria-expanded="false" aria-controls="collapseWebDevelopment">
+                                <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
+                                Web Development
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseWebDevelopment" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('produkwebdevelopment.create') }}">Form Web Development</a>
+                                    <a class="nav-link" href="{{ route('produkwebdevelopment.index') }}">Tabel Web Development</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMarketResearch" aria-expanded="false" aria-controls="collapseMarketResearch">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Market Research
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseMarketResearch" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('produkmarketresearch.create') }}">Form Market Research</a>
+                                    <a class="nav-link" href="{{ route('produkmarketresearch.index') }}">Tabel Market Research</a>
+                                </nav>
+                            </div>
+
                             <div class="sb-sidenav-menu-heading text-white">Portofolio Page</div>
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBannerPortofolioPage" aria-expanded="false" aria-controls="collapseBannerPortofolioPage">
@@ -190,12 +227,12 @@
                             </div>
 
                             <div class="sb-sidenav-menu-heading text-white">Other</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBannerTentang" aria-expanded="false" aria-controls="collapseBannerTentang">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDataCollection" aria-expanded="false" aria-controls="collapseDataCollection">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                 Data Collection
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseBannerTentang" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseDataCollection" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('datacollection.index') }}">Tabel Data Collection</a>
                                 </nav>
@@ -226,7 +263,6 @@
                     <div class="container my-5">
                         @yield('content')
                     </div>
-                    
                 </main>
             </div>
         </div>

@@ -30,7 +30,7 @@ class BannerTentangController extends Controller
         $foto = $request->foto;
         $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-        Image::make($foto)->resize(5000,4200)->save('thumb/'.$namafile);
+        Image::make($foto)->resize(2500,1667)->save('thumb/'.$namafile);
         $foto->move('images/', $namafile);
 
         $bannertentang->foto = $namafile;
@@ -48,7 +48,7 @@ class BannerTentangController extends Controller
             $foto = $request->foto;
             $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-            Image::make($foto)->resize(5000,4200)->save('thumb/'.$namafile);
+            Image::make($foto)->resize(2500,1667)->save('thumb/'.$namafile);
             $foto->move('images/',$namafile);
 
             $bannertentang->foto = $namafile;

@@ -31,7 +31,7 @@ class BannerHomeController extends Controller
         $foto = $request->foto;
         $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-        Image::make($foto)->resize(5000,4200)->save('thumb/'.$namafile);
+        Image::make($foto)->resize(2500,1667)->save('thumb/'.$namafile);
         $foto->move('images/', $namafile);
 
         $bannerhome->foto = $namafile;
@@ -49,7 +49,7 @@ class BannerHomeController extends Controller
             $foto = $request->foto;
             $namafile = time().'.'.$foto->getClientOriginalExtension();
 
-            Image::make($foto)->resize(5000,4200)->save('thumb/'.$namafile);
+            Image::make($foto)->resize(2500,1667)->save('thumb/'.$namafile);
             $foto->move('images/',$namafile);
 
             $bannerhome->foto = $namafile;

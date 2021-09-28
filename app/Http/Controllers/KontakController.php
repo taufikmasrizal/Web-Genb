@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kontak;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 class KontakController extends Controller
 {
     public function get_all_kontak(){
@@ -15,13 +13,8 @@ class KontakController extends Controller
         $kontak = Kontak::all();
         return view('admin.kontak.index', compact('kontak'));
     }
-    public function create(Request $request){
-        $kontak = new Kontak;
-        $kontak->no_kontak        = $request->no_kontak;
-        $kontak->email            = $request->email;
-        $kontak->alamat            = $request->alamat;
-        $kontak->save();
-        return "Data Berhasil Masuk";
+    public function create(){
+        return view('admin.kontak.create');
     }
     public function store(Request $request){
         $kontak = new Kontak;

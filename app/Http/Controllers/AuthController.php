@@ -18,7 +18,7 @@ class AuthController extends Controller
     {
         if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
             //Login Success
-            return redirect()->route('admin.home');
+            return redirect()->route('home');
         }
         return view('admin.login');
     }

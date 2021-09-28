@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GenB Data Collection</title>
-    <link rel="icon" href="{{ asset('frontend/img/logoblue.png') }}">
+    <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -39,11 +39,9 @@
             </div>
         </div>
     </section>
-    <section>
-    <form id="frmDataCollection" action="{{ route('datacollection.store') }}" method="post">
-
+    <form id="frmDataCollection" action="{{ route('datacollection.store') }}" onsubmit="return validateForm()" method="post">
     @csrf
-        <section id="firstform">
+        <section id="firstform" class="d-none">
             <div class="container d-flex align-items-center justify-content-center flex-column" style="padding: 50px 25px 50px 25px">
                 <img src="{{ asset('frontend/img/logo.png') }}" class="mb-5" width="200" alt="">
                 <div class="progress w-100 mb-5">
@@ -62,7 +60,7 @@
                         <div class="form-group">
                             <label class="lead">Tanggal Lahir</label>
                             <input type="date" name="tgllahir" class="form-control">
-                            <small class="invalid-feedback">Tanggal Lahir tidak boleh kosong</small>
+                            <small class="invalid-feedback">Tanggal Lahir tidak boleh kosong dan harus valid</small>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
@@ -105,12 +103,17 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-6"><button id="btnKembaliFirst" class="btn w-100 btn-secondary">Kembali</button></div>
+                            <div class="col-6"><button id="btnLanjutFirst" class="btn w-100 btn-warning">Lanjut</button></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="secondform">
+        <section id="secondform" class="d-none">
             <div class="container d-flex align-items-center justify-content-center flex-column" style="padding: 50px 25px 50px 25px">
                 <img src="{{ asset('frontend/img/logo.png') }}" class="mb-5" width="200" alt="">
                 <div class="progress w-100 mb-5">
@@ -154,12 +157,17 @@
                             <small class="invalid-feedback">Kelurahan tidak boleh kosong</small>
                         </div>
                     </div>
-                    
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-6"><button id="btnKembaliSecond" class="btn w-100 btn-secondary">Kembali</button></div>
+                            <div class="col-6"><button id="btnLanjutSecond" class="btn w-100 btn-warning">Lanjut</button></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="thirdform">
+        <section id="thirdform" class="d-none">
             <div class="container d-flex align-items-center justify-content-center flex-column" style="padding: 50px 25px 50px 25px">
                 <img src="{{ asset('frontend/img/logo.png') }}" class="mb-5" width="200" alt="">
                 <div class="progress w-100 mb-5">
@@ -223,35 +231,35 @@
                         <div class="form-group">
                             <label class="lead">Sosial Media yang Digunakan (Multiple)</label>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optInstagram" name="sosialmedia" class="custom-control-input" value="Instagram">
+                                <input type="checkbox" id="optInstagram" name="sosialmedia[]" class="custom-control-input" value="Instagram">
                                 <label class="custom-control-label" for="optInstagram">Instagram</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optWhatsapp" name="sosialmedia" class="custom-control-input" value="Whatsapp">
+                                <input type="checkbox" id="optWhatsapp" name="sosialmedia[]" class="custom-control-input" value="Whatsapp">
                                 <label class="custom-control-label" for="optWhatsapp">Whatsapp</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optFacebook" name="sosialmedia" class="custom-control-input" value="Facebook">
+                                <input type="checkbox" id="optFacebook" name="sosialmedia[]" class="custom-control-input" value="Facebook">
                                 <label class="custom-control-label" for="optFacebook">Facebook</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optSnapchat" name="sosialmedia" class="custom-control-input" value="Snapchat">
+                                <input type="checkbox" id="optSnapchat" name="sosialmedia[]" class="custom-control-input" value="Snapchat">
                                 <label class="custom-control-label" for="optSnapchat">Snapchat</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optTikTok" name="sosialmedia" class="custom-control-input" value="Tiktok">
+                                <input type="checkbox" id="optTikTok" name="sosialmedia[]" class="custom-control-input" value="Tiktok">
                                 <label class="custom-control-label" for="optTikTok">TikTok</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optYoutube" name="sosialmedia" class="custom-control-input" value="Youtube">
+                                <input type="checkbox" id="optYoutube" name="sosialmedia[]" class="custom-control-input" value="Youtube">
                                 <label class="custom-control-label" for="optYoutube">Youtube</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optTwitter" name="sosialmedia" class="custom-control-input" value="Twitter">
+                                <input type="checkbox" id="optTwitter" name="sosialmedia[]" class="custom-control-input" value="Twitter">
                                 <label class="custom-control-label" for="optTwitter">Twitter</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" id="optLine" name="sosialmedia" class="custom-control-input" value="Line">
+                                <input type="checkbox" id="optLine" name="sosialmedia[]" class="custom-control-input" value="Line">
                                 <label class="custom-control-label" for="optLine">Line</label>
                                 <small class="invalid-feedback">Sosial Media yang Digunakan tidak boleh kosong</small>
                             </div>
@@ -260,52 +268,52 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-6"><button id="btnKembaliThird" class="btn w-100 btn-secondary">Kembali</button></div>
-                            <div class="col-6"><button class="btn w-100 btn-success"type="submit">Selesai</button></div>
+                            <div class="col-6"><button class="btn w-100 btn-success" type="submit">Selesai</button></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </form>
-    </section>
-
-    <section id="finishpage" >
-        <div class="container d-flex align-items-center justify-content-center flex-column" style="padding: 50px 25px 50px 25px">
-            <img src="{{ asset('frontend/img/logo.png') }}" class="mb-5" width="200" alt="">
-            <div class="progress w-100 mb-5">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                    style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-12 mb-5">
-                    <div class="p-4">
-                        <p class="mb-5">Kami ucapkan Terima Kasih bagi teman-teman yang telah bersedia meluangkan waktu untuk mengisi survei yang Broaden Creative Agency adakan. Semoga kamu salah satu dari responden yang beruntung mendapatkan hadiah ,See ya ~</p>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 mb-3">
-                                <button id="btnUlangSurvey" class="btn w-100 btn-outline-info">Ulang Survey</button>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <a class="btn w-100 btn-warning" href="https://www.broadencreative.com">Check Website Kami</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <img src="{{ asset('frontend/img/finish.jpg') }}" style="border-radius: 20px;" width="100%" alt="">
-                </div>
-            </div>
-            
-            
-        </div>
-    </section>
 
     <footer style="background-color: #2C2C2C;">
         <h6 class="text-center text-white py-3 mb-0" style="border-top: 1px solid rgb(255,255,255)">© 2021 GenB
             Creative. All Rights Reserved</h6>
     </footer>
 
+    @if ($errors->any())
+        <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="error" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Submit Form Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ substr($error, 4) }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    @if ($errors->any())
+    <script>
+        $(document).ready(function () {
+            $('#error').modal('show');
+        });
+    </script>
+    @endif
     <script>
         $(document).ready(function () {
             $('.numberonly').keypress(function (e) {
@@ -341,19 +349,24 @@
                 if(!$('input[name="namalengkap"]').val()) {
                     $('input[name="namalengkap"]').addClass('is-invalid')
                     valid = false
-                } if(!$('input[name="tgllahir"]').val()) {
+                } else { $('input[name="namalengkap"]').removeClass('is-invalid') } 
+                if(!$('input[name="tgllahir"]').val() || $('input[name="tgllahir"]').val() === new Date(new Date() - new Date().getTimezoneOffset() * 60000).toISOString().split('T')[0]) {
                     $('input[name="tgllahir"]').addClass('is-invalid')
                     valid = false
-                } if(!$('input[name="email"]').val() || !$('input[name="email"]')[0].checkValidity()) {
+                } else { $('input[name="tgllahir"]').removeClass('is-invalid') } 
+                if(!$('input[name="email"]').val() || !$('input[name="email"]')[0].checkValidity()) {
                     $('input[name="email"]').addClass('is-invalid')
                     valid = false
-                } if(!$('input[name="nomortelp"]').val()) {
+                } else { $('input[name="email"]').removeClass('is-invalid') } 
+                if(!$('input[name="nomortelp"]').val()) {
                     $('input[name="nomortelp"]').addClass('is-invalid')
                     valid = false
-                } if(!$('input[name="jeniskelamin"]:checked').val()) {
+                } else { $('input[name="nomortelp"]').removeClass('is-invalid') } 
+                if(!$('input[name="jeniskelamin"]:checked').val()) {
                     $('input[name="jeniskelamin"]').addClass('is-invalid')
                     valid = false
-                } if(valid) {
+                } else { $('input[name="jeniskelamin"]').removeClass('is-invalid') } 
+                if(valid) {
                     $('input[name="namalengkap"]').removeClass('is-invalid')
                     $('input[name="tgllahir"]').removeClass('is-invalid')
                     $('input[name="email"]').removeClass('is-invalid')
@@ -452,16 +465,19 @@
                 if(!$('select[name="provinsi"]').find(':selected').val()) {
                     $('select[name="provinsi"]').addClass('is-invalid')
                     valid = false
-                } if(!$('select[name="kotakabupaten"]').find(':selected').val()) {
+                } else { $('select[name="provinsi"]').removeClass('is-invalid') } 
+                if(!$('select[name="kotakabupaten"]').find(':selected').val()) {
                     $('select[name="kotakabupaten"]').addClass('is-invalid')
                     valid = false
-                } if(!$('select[name="kecamatan"]').find(':selected').val()) {
+                } else { $('select[name="kotakabupaten"]').removeClass('is-invalid') } if(!$('select[name="kecamatan"]').find(':selected').val()) {
                     $('select[name="kecamatan"]').addClass('is-invalid')
                     valid = false
-                } if(!$('select[name="kelurahan"]').find(':selected').val()) {
+                } else { $('select[name="kecamatan"]').removeClass('is-invalid') } 
+                if(!$('select[name="kelurahan"]').find(':selected').val()) {
                     $('select[name="kelurahan"]').addClass('is-invalid')
                     valid = false
-                } if(valid) {
+                } else { $('select[name="kelurahan"]').removeClass('is-invalid') }
+                 if(valid) {
                     $('select[name="provinsi"]').removeClass('is-invalid')
                     $('select[name="kotakabupaten"]').removeClass('is-invalid')
                     $('select[name="kecamatan"]').removeClass('is-invalid')
@@ -475,13 +491,33 @@
                 }
             })
 
-            
-            // FINISH PAGE
-            $('#btnUlangSurvey').click(() => {
-                location.reload()
+            // THIRD FORM
+            $('#btnKembaliThird').click(e => {
+                e.preventDefault()
+                $('#firstform').addClass('d-none')
+                $('#secondform').removeClass('d-none')
+                $('#thirdform').addClass('d-none')
+                $('#landingpage').addClass('d-none')
+                $('#finishpage').addClass('d-none')
             })
         })
+        function validateForm() {
+            var valid = true
+            if(!$('input[name="pekerjaan"]:checked').val()) {
+                $('input[name="pekerjaan"]').addClass('is-invalid')
+                valid = false
+            } else { $('input[name="pekerjaan"]').removeClass('is-invalid') }
+            if(!$('input[name="pengeluaranperbulan"]:checked').val()) {
+                $('input[name="pengeluaranperbulan"]').addClass('is-invalid')
+                valid = false
+            } else { $('input[name="pengeluaranperbulan"]').removeClass('is-invalid') } 
+            if(!$('input[name="sosialmedia[]"]:checked').val()) {
+                $('input[name="sosialmedia[]"]').addClass('is-invalid')
+                valid = false
+            } else { $('input[name="sosialmedia[]"]').removeClass('is-invalid') }
+            return valid
+        }
     </script>
 </body>
 
-</html>
+</html>     

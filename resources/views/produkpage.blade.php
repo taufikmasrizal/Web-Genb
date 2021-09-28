@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <title>Produk dan Jasa | GenB Creative</title>
-    <link rel="icon" href="{{ asset('frontend/img/logo.ico') }}">
+    <link rel="icon" href="{{ asset('frontend/img/logoyellow.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
 <body>
@@ -35,6 +36,9 @@
                     <a class="nav-link text-white float-right" href="/tentangpage">Tentang</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-white float-right" href="{{ route('datacollection.create') }}">Data Collection</a>
+                  </li>
+                <li class="nav-item">
                     <a class="nav-link text-white d-inline-block px-4 float-right" id="btnHubungiKami"
                         href="/#hubungiKami">Hubungi Kami<img src="{{ asset('frontend/img/arrow.png') }}"
                             class="arrow-right" width="20" /></a>
@@ -55,7 +59,7 @@
             </div>
             <div class="position-absolute" style="bottom: 20%; left: 5%;">
                 <div class="container">
-                    <h1 class="font-weight-bold text-white">Produk dan Jasa Kami</h1>
+                    <h1 class="font-weight-bold text-white invisible" id="title">Produk dan Jasa Kami</h1>
                 </div>
             </div>
         </div>
@@ -66,48 +70,75 @@
         <div class="container-fluid clearfix p-0">
             @foreach ($produksosialmedia as $data)
                 <div class="float-left product">
-                    <div class="container p-5 text-left">
+                    <div class="container p-5 text-left invisible" id="socialmediaDeskripsi">
                         <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_sosialmedia }}</h1>
                         <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
                     </div>
                 </div>
-                <div class="float-right product shadow" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+                <div class="float-right product shadow invisible" id="socialmediaFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
             @endforeach
             @foreach ($produkkontenmarketing as $data)
                 <div class="float-right product">
-                <div class="container p-5 text-right">
+                <div class="container p-5 text-right invisible" id="contentmarketingDeskripsi">
                     <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_contentmarketing }}</h1>
                     <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
                   </div>
                 </div>
-                <div class="float-left product shadow" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+                <div class="float-left product shadow invisible" id="contentmarketingFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
             @endforeach
             @foreach ($produkbrandingdesign as $data)
                 <div class="float-left product">
-                <div class="container p-5 text-left">
+                <div class="container p-5 text-left invisible" id="brandingdesignDeskripsi">
                     <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_brandingdesign }}</h1>
                     <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
                   </div>
                 </div>
-                <div class="float-right product shadow" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+                <div class="float-right product shadow invisible" id="brandingdesignFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
             @endforeach
             @foreach ($produkphotography as $data)
                 <div class="float-right product">
-                    <div class="container p-5 text-right">
+                    <div class="container p-5 text-right invisible" id="photographyDeskripsi">
                         <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_photography }}</h1>
                         <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
                     </div>
                 </div>
-                <div class="float-left product shadow" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
-        @endforeach
+                <div class="float-left product shadow invisible" id="photographyFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+            @endforeach
+        @foreach ($produkvideography as $data)
+                <div class="float-left product">
+                    <div class="container p-5 text-left invisible" id="videographyDeskripsi">
+                        <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_videography }}</h1>
+                        <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
+                    </div>
+                </div>
+                <div class="float-right product shadow invisible" id="videographyFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+            @endforeach
+            @foreach ($produkwebdevelopment as $data)
+                <div class="float-right product">
+                    <div class="container p-5 text-right invisible" id="webdevelopmentDeskripsi">
+                        <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_webdevelopment }}</h1>
+                        <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
+                    </div>
+                </div>
+                <div class="float-left product shadow invisible" id="webdevelopmentFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+            @endforeach
+            @foreach ($produkmarketresearch as $data)
+                <div class="float-left product">
+                    <div class="container p-5 text-left invisible" id="marketresearchDeskripsi">
+                        <h1 class="font-weight-bold mb-5">{{ $data->nama_produk_marketresearch }}</h1>
+                        <h4 class="font-weight-light">{{ $data->keterangan }}</h4>
+                    </div>
+                </div>
+                <div class="float-right product shadow invisible" id="marketresearchFoto" style="background: url('{{ asset('thumb/' . $data->foto) }}') no-repeat; background-size: cover;"></div>
+            @endforeach
         </div>
     </section>
 
     <footer style="background-color: #2C2C2C;">
         <div class="container-fluid pt-5">
-            <div class="row">
+            <div class="row invisible" id="footer">
                 <div class="col-lg-3 text-center mb-5">
-                    <a href="index.html"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
+                    <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" width="120px" alt=""></a>
                 </div>
                 <div class="col-lg-3 col-6 text-left text-white mb-5">
                     <h5 class="font-weight-bold">Ikuti Kami:</h5>
@@ -137,6 +168,75 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+          $("#title").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#socialmediaDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#socialmediaFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight',
+            classToRemove: 'invisible'
+          });
+          $("#contentmarketingDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#contentmarketingFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft',
+            classToRemove: 'invisible'
+          });
+          $("#brandingdesignDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#brandingdesignFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight',
+            classToRemove: 'invisible'
+          });
+          $("#photographyDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#photographyFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft',
+            classToRemove: 'invisible'
+          });
+          $("#videographyDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#videographyFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight',
+            classToRemove: 'invisible'
+          });
+          $("#webdevelopmentDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#webdevelopmentFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft',
+            classToRemove: 'invisible'
+          });
+          $("#marketresearchDeskripsi").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInLeft animate__faster',
+            classToRemove: 'invisible'
+          });
+          $("#marketresearchFoto").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeInRight',
+            classToRemove: 'invisible'
+          });
+          $("#footer").viewportChecker({
+            classToAdd: 'animate__animated animate__fadeIn',
+            classToRemove: 'invisible'
+          });
+        });
     </script>
 </body>
 

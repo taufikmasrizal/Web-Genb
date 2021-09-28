@@ -32,7 +32,7 @@ class ProdukBrandingDesignController extends Controller
          $foto = $request->foto;
          $namafile = time().'.'.$foto->getClientOriginalExtension();
  
-         Image::make($foto)->resize(1000,950)->save('thumb/'.$namafile);
+         Image::make($foto)->resize(1502,720)->save('thumb/'.$namafile);
          $foto->move('images/', $namafile);
  
          $produkbrandingdesign->foto = $namafile;
@@ -51,7 +51,7 @@ class ProdukBrandingDesignController extends Controller
              $foto = $request->foto;
              $namafile = time().'.'.$foto->getClientOriginalExtension();
  
-             Image::make($foto)->resize(1000,950)->save('thumb/'.$namafile);
+             Image::make($foto)->resize(1502,720)->save('thumb/'.$namafile);
              $foto->move('images/',$namafile);
  
              $produkbrandingdesign->foto = $namafile;

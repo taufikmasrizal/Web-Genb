@@ -18,6 +18,21 @@ class DataCollectionController extends Controller
      }
     
     public function store(Request $request){
+        $request->validate([
+            'namalengkap' => 'required',
+            'tgllahir' => 'required',
+            'email' => 'required',
+            'nomortelp' => 'required',
+            'jeniskelamin' => 'required',
+            'provinsi' => 'required',
+            'kotakabupaten' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'pekerjaan' => 'required',
+            'sosialmedia' => 'required',
+            'pengeluaranperbulan' => 'required',
+        ]);
+
         $datacollection = new Datacollection;
         $datacollection->namalengkap = $request->namalengkap;
         $datacollection->tgllahir  = $request->tgllahir;
@@ -29,10 +44,10 @@ class DataCollectionController extends Controller
         $datacollection->kecamatan  = $request->kecamatan;
         $datacollection->kelurahan  = $request->kelurahan;
         $datacollection->pekerjaan  = $request->pekerjaan;
-        $datacollection->sosialmedia  = $request->sosialmedia;
+        $datacollection->sosialmedia  = implode(",", $request->sosialmedia);
         $datacollection->pengeluaranperbulan  = $request->pengeluaranperbulan;
         $datacollection->save();
-        return view('datacollection');
+        return redirect('datacollection/success');
     }
     public function destroy($id){
         $datacollection = Datacollection::find($id);
