@@ -31,6 +31,7 @@
                         <h1 class="my-3">GenB Data Collection</h1>
                         <p class="my-3">Hello Broaders Fellow, kami ingin mengajak kamu mengisi survei Data Collection Customer yang bertujuan untuk kebutuhan Tim Data kami sebagai bentuk referensi customer lebih dalam lagi. Setiap pengisisan survei ini akan ada hadiah menarik dari kami bagi responden yang beruntung .</p>
                         <button id="btnMulai" class="btn w-100 btn-warning my-3 py-3">Mulai Sekarang</button>
+                        <small class="font-weight-bold text-danger">Segala data diri responden akan dijamin kerahasiannya dan tidak akan disebarluaskan.</small>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -191,12 +192,16 @@
                                 <label class="custom-control-label" for="optKaryawanSwasta">Karyawan Swasta</label>
                             </div>
                             <div class="custom-control custom-radio mb-2">
-                                <input type="radio" id="optASN" name="pekerjaan" class="custom-control-input">
+                                <input type="radio" id="optASN" name="pekerjaan" class="custom-control-input" value="ASN">
                                 <label class="custom-control-label" for="optASN">ASN</label>
                             </div>
                             <div class="custom-control custom-radio mb-2">
                                 <input type="radio" id="optKaryawanBUMN" name="pekerjaan" class="custom-control-input" value="Karyawan BUMN">
                                 <label class="custom-control-label" for="optKaryawanBUMN">Karyawan BUMN</label>
+                            </div>
+                            <div class="custom-control custom-radio mb-2">
+                                <input type="radio" id="optLainnya" name="pekerjaan" class="custom-control-input" value="Lainnya">
+                                <label class="custom-control-label" for="optLainnya">Lainnya</label>
                                 <small class="invalid-feedback">Pekerjaan tidak boleh kosong</small>
                             </div>
                         </div>
@@ -267,6 +272,13 @@
                     </div>
                     <div class="col-md-12">
                         <div class="row">
+                            <div class="col-12 mb-2">
+                                <div class="custom-control custom-checkbox mb-2">
+                                    <input type="checkbox" id="chkLegalConfirmation" name="legalConfirmation" class="custom-control-input">
+                                    <label class="custom-control-label" for="chkLegalConfirmation">Seluruh data yang telah saya isi adalah sebenar-benarnya dan saya melakukannya dalam keadaan sadar.</label>
+                                    <small class="invalid-feedback">Wajib dicentang</small>
+                                </div>
+                            </div>
                             <div class="col-6"><button id="btnKembaliThird" class="btn w-100 btn-secondary">Kembali</button></div>
                             <div class="col-6"><button class="btn w-100 btn-success" type="submit">Selesai</button></div>
                         </div>
@@ -515,6 +527,10 @@
                 $('input[name="sosialmedia[]"]').addClass('is-invalid')
                 valid = false
             } else { $('input[name="sosialmedia[]"]').removeClass('is-invalid') }
+            if(!$('input[name="legalConfirmation"]:checked').val()) {
+                $('input[name="legalConfirmation"]').addClass('is-invalid')
+                valid = false
+            } else { $('input[name="legalConfirmation"]').removeClass('is-invalid') }
             return valid
         }
     </script>

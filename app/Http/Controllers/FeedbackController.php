@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Feedback;
+use App\feedback;
 class FeedbackController extends Controller
 {
     public function index(){

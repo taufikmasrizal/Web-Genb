@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kontak;
+use App\kontak;
 class KontakController extends Controller
 {
     public function get_all_kontak(){

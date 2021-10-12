@@ -261,7 +261,7 @@
                 },
                 1200:{
                     items:4,
-                    nav:true,
+                    nav:false,
                 }
             }
           });

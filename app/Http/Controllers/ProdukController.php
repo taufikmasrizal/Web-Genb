@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Produk;
+use App\produk;
 use File;
 use Image;
 class ProdukController extends Controller

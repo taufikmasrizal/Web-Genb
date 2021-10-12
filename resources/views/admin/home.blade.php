@@ -210,7 +210,7 @@
                             <div class="collapse" id="collapseBannerTentangPage" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('bannertentang.create') }}">Form Banner Tentang Page</a>
-                                    <a class="nav-link" href="{{ route('bannertentang.create') }}">Tabel Banner Tentang Page</a>
+                                    <a class="nav-link" href="{{ route('bannertentang.index') }}">Tabel Banner Tentang Page</a>
                                 </nav>
                             </div>
 

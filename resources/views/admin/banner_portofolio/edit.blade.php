@@ -3,7 +3,7 @@
     <h1 class="text-center display-5">
         Edit Banner Portofolio
     </h1>
-    <form class="mt-5" action="{{ route('bannerprotofolio.update', $bannerportofolio->id) }}" method="post"
+    <form class="mt-5" action="{{ route('bannerportofolio.update', $bannerportofolio->id) }}" method="post"
         enctype="multipart/form-data">
         @csrf
         <div class="form-group mb-3">
